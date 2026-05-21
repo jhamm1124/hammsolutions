@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamm Networks — Residential & Small Business IT Solutions in Harrisburg, York, Carlisle & Lancaster</title>
+  <meta name="description" content="Hamm Networks provides residential and small business IT solutions: Wi‑Fi optimization, smart home setup, device repair, and computer support serving Harrisburg, York, Carlisle, Lancaster and surrounding PA areas." />
+  <link rel="canonical" href="https://yourdomain.com/" />
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Hamm Networks — Home & Small Business IT Solutions (Harrisburg, York, Carlisle, Lancaster)" />
+  <meta property="og:description" content="Reliable home networking, smart home setup, device repair, and consumer IT support for Harrisburg and nearby Pennsylvania areas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hamm Networks — IT Solutions in Harrisburg, York, Carlisle & Lancaster" />
+  <meta name="twitter:description" content="Residential & small business networking, device repair, and consumer IT support in central Pennsylvania." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --gold: #C9A227;
+      --light: #F5F7FA;
+      --text: #1E293B;
+      --muted: #64748B;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Enable smooth scrolling for in-page links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      transition: 0.2s ease;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)),
+      url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop') center/cover;
+      color: white;
+      padding: 8rem 0;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(201,162,39,0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 1.5rem;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      display: inline-block;
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+      background: rgba(201,162,39,0.08); /* pale gold pill to contrast with white cards */
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Make the services section subtly contrast so white cards stand out */
+    #services {
+      /* fallback */
+      background-color: #f6f9fc;
+      background: linear-gradient(180deg, rgba(11,31,58,0.05), rgba(11,31,58,0.05));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(11,31,58,0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 14px 30px rgba(2,6,23,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--navy);
+      color: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+    }
+
+    .about-box h3 {
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .contact {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer {
+      background: #071427;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* Modal / Popup styles */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2,6,23,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--card);
+      color: var(--text);
+      max-width: 720px;
+      width: calc(100% - 2rem);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 20px 40px rgba(2,6,23,0.35);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: transparent;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 0.5rem;
+      line-height: 1;
+    }
+
+    .modal h3 { margin-top: 0; color: var(--navy); }
+
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 6rem 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+  </style>
+  <!-- LocalBusiness structured data (replace url and sameAs as needed) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hamm Networks and IT Solutions",
+    "description": "Residential and small business IT solutions: Wi-Fi optimization, smart home setup, device repair, and consumer IT support.",
+    "telephone": "+1-717-555-1234",
+    "url": "https://yourdomain.com/",
+    "areaServed": [
+      { "@type": "City", "name": "Harrisburg" },
+      { "@type": "City", "name": "York" },
+      { "@type": "City", "name": "Carlisle" },
+      { "@type": "City", "name": "Lancaster" }
+    ],
+    "keywords": "home networking, Wi-Fi optimization, smart home setup, device repair, computer support, Harrisburg, York, Carlisle, Lancaster"
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Hamm <span>Networks and IT Solutions</span></div>
+
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="badge">Residential Networking & Consumer IT Solutions</div>
+
+      <h1>Reliable Home Technology Support You Can Trust</h1>
+
+      <p>
+        We help homeowners with Wi‑Fi optimization, smart home setup, networking,
+        device troubleshooting, computer repair, and consumer IT solutions.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" data-modal="modal-contact">Get a Free Quote</button>
+        <a href="#services" class="btn btn-secondary">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>
+          Helping families and homeowners simplify their technology and improve their home network experience.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="card" data-modal="modal-networking" tabindex="0" role="button" aria-controls="modal-networking">
+          <div class="card-icon">🌐</div>
+          <h3>Home Networking</h3>
+          <p>
+            Wi‑Fi optimization, router setup, mesh systems, Ethernet installation, and network troubleshooting.
+          </p>
+        </div>
+
+        <div class="card" data-modal="modal-computer" tabindex="0" role="button" aria-controls="modal-computer">
+          <div class="card-icon">💻</div>
+          <h3>Computer Support</h3>
+          <p>
+            PC troubleshooting, upgrades, virus cleanup, performance optimization, and device setup.
+          </p>
+        </div>
+
+        <div class="card" data-modal="modal-smart" tabindex="0" role="button" aria-controls="modal-smart">
+          <div class="card-icon">📱</div>
+          <h3>Smart Home Setup</h3>
+          <p>
+            Smart TVs, cameras, streaming devices, speakers, thermostats, and home automation support.
+          </p>
+        </div>
+
+        <div class="card" data-modal="modal-repair" tabindex="0" role="button" aria-controls="modal-repair">
+          <div class="card-icon">🛠️</div>
+          <h3>Device Repair</h3>
+          <p>
+            Hardware diagnostics, software fixes, and repair guidance for consumer technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="section-title" style="text-align:left; margin-bottom:1.5rem;">
+            <h2>Why Choose Us?</h2>
+          </div>
+
+          <p style="margin-bottom:1rem; color:var(--muted);">
+            We believe technology should work for your home — not against it.
+            Our mission is to provide honest, dependable, and easy-to-understand IT support for everyday people.
+          </p>
+
+          <p style="color:var(--muted);">
+            Whether you need stronger Wi‑Fi, help with devices, or a complete smart home setup,
+            we focus on professional service with integrity and reliability.
+          </p>
+        </div>
+
+        <div class="about-box">
+          <h3>Built on Trust</h3>
+
+          <p>
+            Our approach is centered around honesty, patience, and dependable support.
+            We know inviting someone into your home requires trust, and we strive to deliver professional service with excellence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Ready to Upgrade Your Home Tech?</h2>
+
+      <p>
+        Contact us today for residential networking support, smart home assistance,
+        computer troubleshooting, and consumer IT solutions.
+      </p>
+
+  <p style="margin-top:0.75rem; color:rgba(255,255,255,0.9); font-weight:600;">Service area: Harrisburg, York, Carlisle, Lancaster & surrounding central PA.</p>
+
+      <div class="contact-buttons">
+  <button class="btn btn-primary" data-modal="modal-contact">Email Us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals for services -->
+  <div id="modal-networking" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Home Networking — What we do</h3>
+      <p>We audit your current setup, optimize Wi‑Fi coverage using channel planning and placement, recommend and install mesh or business-grade systems, run Ethernet where needed, and secure your network with guest segmentation and password policies.</p>
+      <p><strong>Typical visit:</strong> Network survey, router/mesh setup, speed testing, and brief user training.</p>
+    </div>
+  </div>
+
+  <div id="modal-computer" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Computer Support — What we do</h3>
+      <p>We diagnose software and hardware issues, remove malware, perform performance tuning, recommend and install upgrades, back up important data, and configure systems for better reliability and speed.</p>
+      <p><strong>Typical visit:</strong> Full diagnostic, cleanup, and actionable recommendations.</p>
+    </div>
+  </div>
+
+  <div id="modal-smart" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Smart Home Setup — What we do</h3>
+      <p>We connect and configure smart devices (TVs, cameras, speakers, thermostats), integrate automations, ensure secure device onboarding, and help you choose compatible ecosystems for long-term reliability.</p>
+      <p><strong>Typical visit:</strong> Device integration, testing, and user walkthrough of automations.</p>
+    </div>
+  </div>
+
+  <div id="modal-repair" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Device Repair — What we do</h3>
+      <p>We perform hardware diagnostics, replace or repair components where feasible, reimage devices, and provide guidance on economical replacement versus repair options.</p>
+      <p><strong>Typical visit:</strong> Diagnostic and repair estimate; minor repairs performed on-site when possible.</p>
+    </div>
+  </div>
+
+  <!-- Contact modal -->
+  <div id="modal-contact" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Contact Us</h3>
+      <form id="contact-form" action="/api/contact" method="post">
+        <!-- Anti-spam honeypot (hidden) -->
+        <input type="text" name="botcheck" id="botcheck" style="display:none" />
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="name">Name</label><br>
+          <input id="name" name="name" type="text" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
+        </div>
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="email">Email</label><br>
+          <input id="email" name="email" type="email" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
+        </div>
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="phone">Phone</label><br>
+          <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
+        </div>
+
+        <div style="margin-bottom:0.75rem;">
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message" rows="5" required style="width:100%; padding:0.5rem; margin-top:0.25rem;"></textarea>
+        </div>
+
+        <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+        <div id="contact-feedback" style="margin-top:0.75rem; color:var(--muted); display:none;" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+  © 2026 Hamm Networks and IT Solutions • Residential Networking & Consumer IT Services • Call: <a href="tel:+17175551234">(717) 555-1234</a>
+    </div>
+  </footer>
+
+</body>
+<script>
+  // Ensure anchored sections are not hidden under the sticky header.
+  (function() {
+    const header = document.querySelector('header');
+    function updateScrollPadding() {
+      const h = header ? header.offsetHeight : 0;
+      document.documentElement.style.scrollPaddingTop = h + 'px';
+    }
+
+    // Initial set and on resize (header height can change on small screens)
+    updateScrollPadding();
+    window.addEventListener('resize', updateScrollPadding);
+
+    // For consistent behavior across browsers, intercept same-page anchor clicks
+    // and perform a smooth scroll that accounts for the header height.
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        if (!targetId) return; // allow top-of-page anchors
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        const offset = target.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0);
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+        // update URL without jumping
+        history.pushState(null, '', '#' + targetId);
+      });
+    });
+
+    // Modal handling
+    const modals = document.querySelectorAll('.modal');
+    const triggers = document.querySelectorAll('[data-modal]');
+    let lastActiveElement = null;
+
+    function openModal(id, trigger) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastActiveElement = trigger || document.activeElement;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      const close = modal.querySelector('.modal-close');
+      // move focus into modal
+      if (close) close.focus();
+      // prevent background scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastActiveElement) lastActiveElement.focus();
+    }
+
+    triggers.forEach(t => {
+      const id = t.getAttribute('data-modal');
+      t.addEventListener('click', () => openModal(id, t));
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(id, t);
+        }
+      });
+    });
+
+    modals.forEach(m => {
+      m.addEventListener('click', (e) => {
+        if (e.target === m) closeModal(m);
+      });
+      const close = m.querySelector('.modal-close');
+      if (close) close.addEventListener('click', () => closeModal(m));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(m => closeModal(m));
+      }
+    });
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const feedback = document.getElementById('contact-feedback');
+        feedback.style.display = 'none';
+
+        // Basic honeypot check
+        const botcheck = contactForm.querySelector('#botcheck');
+        if (botcheck && botcheck.value) {
+          // treat as spam silently
+          return;
+        }
+
+        const payload = {
+          name: contactForm.name.value.trim(),
+          email: contactForm.email.value.trim(),
+          phone: contactForm.phone ? contactForm.phone.value.trim() : '',
+          message: contactForm.message.value.trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.message) {
+          feedback.textContent = 'Please complete all required fields.';
+          feedback.style.display = '';
+          return;
+        }
+
+        try {
+          const res = await fetch(contactForm.action || '/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json();
+          if (json && json.success) {
+            // show thank-you modal (reusing earlier helper from the GitHub Pages form)
+            showThankYouModal();
+            contactForm.reset();
+            // close the modal dialog after a short delay
+            setTimeout(() => {
+              const modal = document.getElementById('modal-contact');
+              if (modal) closeModal(modal);
+            }, 1200);
+          } else {
+            feedback.textContent = (json && json.message) ? json.message : 'Error sending message.';
+            feedback.style.display = '';
+          }
+        } catch (err) {
+          feedback.textContent = 'Network error, please try again later.';
+          feedback.style.color = 'red';
+          feedback.style.display = '';
+        }
+      });
+    }
+
+    // Thank-you modal helpers (used by contact form submit handler)
+    function showThankYouModal() {
+      // Create modal overlay
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'modal-overlay';
+      modalOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        font-family: inherit;
+      `;
+
+      // Create modal content
+      const modalContent = document.createElement('div');
+      modalContent.className = 'modal-content';
+      modalContent.style.cssText = `
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        max-width: 420px;
+        width: 90%;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+      `;
+
+      modalContent.innerHTML = `
+        <div class="success-icon" style="font-size: 3.5rem; color: #28a745; margin-bottom: 1rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07.02L11.03 8.1a.75.75 0 1 0-1.06-1.06L7.5 9.44 6.03 7.97a.75.75 0 1 0-1.06 1.06l1.99 2z"/>
+          </svg>
+        </div>
+        <h2>Thank You!</h2>
+        <p class="text-muted" style="color:#6c757d;">Your message has been sent successfully. We'll get back to you soon!</p>
+        <div class="countdown" style="font-size: 0.9rem; color: #6c757d; margin-top: 1rem;">This message will close in <span id="thank-countdown">4</span> seconds...</div>
+        <button class="btn btn-primary mt-3" id="thank-close">Close</button>
+      `;
+
+      modalOverlay.appendChild(modalContent);
+      document.body.appendChild(modalOverlay);
+
+      // Countdown timer
+      let countdown = 4;
+      const countdownElement = modalContent.querySelector('#thank-countdown');
+
+      const timer = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown <= 0) {
+          clearInterval(timer);
+          closeModalOverlay();
+        }
+      }, 1000);
+
+      // Close handler
+      function closeModalOverlay() {
+        clearInterval(timer);
+        if (modalOverlay && modalOverlay.parentNode) modalOverlay.parentNode.removeChild(modalOverlay);
+      }
+
+      modalContent.querySelector('#thank-close').addEventListener('click', closeModalOverlay);
+    }
+  })();
+</script>
+</html>
