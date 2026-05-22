@@ -533,112 +533,35 @@
   <div id="modal-contact" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close">✕</button>
-
       <h3>Contact Us</h3>
-
-      <form
-        id="contact-form"
-        action="https://formsubmit.co/jdhamm17@gmail.com"
-        method="POST"
-      >
-
-        <!-- FormSubmit Configuration -->
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Hamm Networks Contact Form Submission"
-        >
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        >
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        >
-
-        <!-- Redirect after successful submission -->
-        <input
-          type="hidden"
-          name="_next"
-          value="https://jhamm1124.github.io/ITSolutions/"
-        >
-
-        <!-- Anti-spam honeypot -->
-        <input
-          type="text"
-          name="_honey"
-          style="display:none"
-        >
-
-        <!-- Disable FormSubmit default captcha -->
-        <input
-          type="hidden"
-          name="_autoresponse"
-          value="Thank you for contacting Hamm Networks. We received your request and will get back to you soon."
-        >
+      <form id="contact-form" action="/api/contact" method="post">
+        <!-- Anti-spam honeypot (hidden) -->
+        <input type="text" name="botcheck" id="botcheck" style="display:none" />
 
         <div style="margin-bottom:0.75rem;">
           <label for="name">Name</label><br>
-
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            style="width:100%; padding:0.75rem; margin-top:0.25rem; border-radius:8px; border:1px solid #d1d5db;"
-          />
+          <input id="name" name="name" type="text" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
         </div>
 
         <div style="margin-bottom:0.75rem;">
           <label for="email">Email</label><br>
-
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            style="width:100%; padding:0.75rem; margin-top:0.25rem; border-radius:8px; border:1px solid #d1d5db;"
-          />
+          <input id="email" name="email" type="email" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
         </div>
 
         <div style="margin-bottom:0.75rem;">
           <label for="phone">Phone</label><br>
-
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="(123) 456-7890"
-            style="width:100%; padding:0.75rem; margin-top:0.25rem; border-radius:8px; border:1px solid #d1d5db;"
-          />
+          <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
         </div>
 
-        <div style="margin-bottom:1rem;">
+        <div style="margin-bottom:0.75rem;">
           <label for="message">Message</label><br>
-
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            required
-            style="width:100%; padding:0.75rem; margin-top:0.25rem; border-radius:8px; border:1px solid #d1d5db; resize:vertical;"
-          ></textarea>
+          <textarea id="message" name="message" rows="5" required style="width:100%; padding:0.5rem; margin-top:0.25rem;"></textarea>
         </div>
 
-        <div style="display:flex; justify-content:flex-end;">
-          <button
-            type="submit"
-            class="btn btn-primary"
-          >
-            Request Support
-          </button>
+        <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
+          <button type="submit" class="btn btn-primary">Send</button>
         </div>
-
+        <div id="contact-feedback" style="margin-top:0.75rem; color:var(--muted); display:none;" role="status" aria-live="polite"></div>
       </form>
     </div>
   </div>
@@ -730,6 +653,62 @@
       }
     });
 
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const feedback = document.getElementById('contact-feedback');
+        feedback.style.display = 'none';
+
+        // Basic honeypot check
+        const botcheck = contactForm.querySelector('#botcheck');
+        if (botcheck && botcheck.value) {
+          // treat as spam silently
+          return;
+        }
+
+        const payload = {
+          name: contactForm.name.value.trim(),
+          email: contactForm.email.value.trim(),
+          phone: contactForm.phone ? contactForm.phone.value.trim() : '',
+          message: contactForm.message.value.trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.message) {
+          feedback.textContent = 'Please complete all required fields.';
+          feedback.style.display = '';
+          return;
+        }
+
+        try {
+          const res = await fetch(contactForm.action || '/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json();
+          if (json && json.success) {
+            // show thank-you modal (reusing earlier helper from the GitHub Pages form)
+            showThankYouModal();
+            contactForm.reset();
+            // close the modal dialog after a short delay
+            setTimeout(() => {
+              const modal = document.getElementById('modal-contact');
+              if (modal) closeModal(modal);
+            }, 1200);
+          } else {
+            feedback.textContent = (json && json.message) ? json.message : 'Error sending message.';
+            feedback.style.display = '';
+          }
+        } catch (err) {
+          feedback.textContent = 'Network error, please try again later.';
+          feedback.style.color = 'red';
+          feedback.style.display = '';
+        }
+      });
+    }
+
     // Thank-you modal helpers (used by contact form submit handler)
     function showThankYouModal() {
       // Create modal overlay
@@ -798,26 +777,6 @@
 
       modalContent.querySelector('#thank-close').addEventListener('click', closeModalOverlay);
     }
-
-    // Contact form submit handler
-    document.getElementById('contact-form').addEventListener('submit', function() {
-
-      // Close any open modals
-      document.querySelectorAll('.modal.active').forEach(m => {
-        m.classList.remove('active');
-        m.setAttribute('aria-hidden', 'true');
-      });
-
-      // Restore scrolling
-      document.body.style.overflow = '';
-
-      // Show success popup
-      setTimeout(() => {
-        showThankYouModal();
-      }, 300);
-
-    });
-
   })();
 </script>
 </html>
