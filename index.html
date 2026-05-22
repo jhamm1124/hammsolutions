@@ -534,9 +534,12 @@
     <div class="modal-content">
       <button class="modal-close" aria-label="Close">✕</button>
       <h3>Contact Us</h3>
-      <form id="contact-form">
+      <form id="contact-form" action="https://formsubmit.co/jdhamm17@hotmail.com" method="POST">
         <!-- Anti-spam honeypot (hidden) -->
         <input type="text" name="botcheck" id="botcheck" style="display:none" />
+        <!-- Preserve extra fields when submitting non-AJAX to formsubmit.co -->
+        <input type="hidden" name="_subject" value="New Contact Form Submission - Hamm Networks" />
+        <input type="hidden" name="_captcha" value="false" />
 
         <div style="margin-bottom:0.75rem;">
           <label for="name">Name</label><br>
@@ -751,16 +754,33 @@
         formData.append('_subject', 'New Contact Form Submission - Hamm Networks');
         formData.append('_captcha', 'false');
 
-        fetch('https://formsubmit.co/ajax/jdhamm17@hotmail.com', {
-          method: 'POST',
-          body: formData
-        });
+        // AJAX submission removed — use standard form POST to formsubmit.co
+        // fetch('https://formsubmit.co/ajax/jdhamm17@hotmail.com', {
+        //   method: 'POST',
+        //   body: formData
+        // });
 
-        // Show popup immediately
-        const contactModal = document.getElementById('modal-contact');
-        closeModal(contactModal);
-        contactForm.reset();
-        showThankYouModal();
+        // Ensure hidden fields are present (in case form was edited later)
+        let subj = contactForm.querySelector('input[name="_subject"]');
+        if (!subj) {
+          subj = document.createElement('input');
+          subj.type = 'hidden';
+          subj.name = '_subject';
+          contactForm.appendChild(subj);
+        }
+        subj.value = 'New Contact Form Submission - Hamm Networks';
+
+        let cap = contactForm.querySelector('input[name="_captcha"]');
+        if (!cap) {
+          cap = document.createElement('input');
+          cap.type = 'hidden';
+          cap.name = '_captcha';
+          contactForm.appendChild(cap);
+        }
+        cap.value = 'false';
+
+        // Submit the form using a normal POST (will navigate away on success)
+        contactForm.submit();
       });
     }
 
