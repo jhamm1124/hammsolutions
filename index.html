@@ -534,7 +534,7 @@
     <div class="modal-content">
       <button class="modal-close" aria-label="Close">✕</button>
       <h3>Contact Us</h3>
-      <form id="contact-form" action="/api/contact" method="post">
+      <form id="contact-form" action="https://formsubmit.co/jdhamm17@gmail.com" method="POST">
         <!-- Anti-spam honeypot (hidden) -->
         <input type="text" name="botcheck" id="botcheck" style="display:none" />
 
@@ -562,6 +562,12 @@
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
         <div id="contact-feedback" style="margin-top:0.75rem; color:var(--muted); display:none;" role="status" aria-live="polite"></div>
+        
+        <input type="hidden" name="_subject" value="New Contact Form Submission - Hamm Networks">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://jhamm1124.github.io/ITSolutions/">
+
       </form>
     </div>
   </div>
@@ -652,62 +658,6 @@
         document.querySelectorAll('.modal.active').forEach(m => closeModal(m));
       }
     });
-
-    // Contact form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const feedback = document.getElementById('contact-feedback');
-        feedback.style.display = 'none';
-
-        // Basic honeypot check
-        const botcheck = contactForm.querySelector('#botcheck');
-        if (botcheck && botcheck.value) {
-          // treat as spam silently
-          return;
-        }
-
-        const payload = {
-          name: contactForm.name.value.trim(),
-          email: contactForm.email.value.trim(),
-          phone: contactForm.phone ? contactForm.phone.value.trim() : '',
-          message: contactForm.message.value.trim()
-        };
-
-        if (!payload.name || !payload.email || !payload.message) {
-          feedback.textContent = 'Please complete all required fields.';
-          feedback.style.display = '';
-          return;
-        }
-
-        try {
-          const res = await fetch(contactForm.action || '/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          const json = await res.json();
-          if (json && json.success) {
-            // show thank-you modal (reusing earlier helper from the GitHub Pages form)
-            showThankYouModal();
-            contactForm.reset();
-            // close the modal dialog after a short delay
-            setTimeout(() => {
-              const modal = document.getElementById('modal-contact');
-              if (modal) closeModal(modal);
-            }, 1200);
-          } else {
-            feedback.textContent = (json && json.message) ? json.message : 'Error sending message.';
-            feedback.style.display = '';
-          }
-        } catch (err) {
-          feedback.textContent = 'Network error, please try again later.';
-          feedback.style.color = 'red';
-          feedback.style.display = '';
-        }
-      });
-    }
 
     // Thank-you modal helpers (used by contact form submit handler)
     function showThankYouModal() {
