@@ -539,10 +539,9 @@
         <input type="text" name="botcheck" id="botcheck" style="display:none" />
 
         <!-- Formspree configuration -->
-        <input type="hidden" name="_subject" value="New Inquiry - Hamm Networks & IT Solutions">
-        <input type="hidden" name="_template" value="box">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Hamm Networks! We received your message and will get back to you shortly.">
+        <input type="hidden" name="access_key" value="6772c79d-dad5-4e9f-8d9f-ff8adbb01d29">
+        <input type="hidden" name="subject" value="New Inquiry - Hamm Networks & IT Solutions">
+        <input type="hidden" name="from_name" value="Hamm Networks">
 
         <div style="margin-bottom:0.75rem;">
           <label for="name">Name</label><br>
@@ -700,7 +699,7 @@
         <h2>Thank You!</h2>
         <p class="text-muted" style="color:#6c757d;">Your message has been sent successfully. We'll get back to you soon!</p>
         <div class="countdown" style="font-size: 0.9rem; color: #6c757d; margin-top: 1rem;">This message will close in <span id="thank-countdown">4</span> seconds...</div>
-        <button class="btn btn-primary mt-3" id="thank-close">Close</button>
+        <button class="btn btn-primary" id="thank-close" style="margin-top: 1.5rem;">Close</button>
       `;
 
       modalOverlay.appendChild(modalContent);
@@ -757,7 +756,7 @@
         formData.append('_subject', 'New Contact Form Submission - Hamm Networks');
         formData.append('_captcha', 'false');
 
-        fetch('https://formsubmit.co/ajax/jdhamm17@hotmail.com', {
+        fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formData
         });
