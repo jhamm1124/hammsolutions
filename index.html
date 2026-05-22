@@ -534,7 +534,7 @@
     <div class="modal-content">
       <button class="modal-close" aria-label="Close">✕</button>
       <h3>Contact Us</h3>
-      <form id="contact-form" action="https://formsubmit.co/jdhamm17@gmail.com" method="POST">
+      <form id="contact-form">
         <!-- Anti-spam honeypot (hidden) -->
         <input type="text" name="botcheck" id="botcheck" style="display:none" />
 
@@ -562,12 +562,6 @@
           <button type="submit" class="btn btn-primary">Send</button>
         </div>
         <div id="contact-feedback" style="margin-top:0.75rem; color:var(--muted); display:none;" role="status" aria-live="polite"></div>
-        
-        <input type="hidden" name="_subject" value="New Contact Form Submission - Hamm Networks">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://jhamm1124.github.io/ITSolutions/">
-
       </form>
     </div>
   </div>
@@ -727,6 +721,34 @@
 
       modalContent.querySelector('#thank-close').addEventListener('click', closeModalOverlay);
     }
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const botcheck = contactForm.querySelector('#botcheck');
+        if (botcheck && botcheck.value) return;
+
+        const name = contactForm.querySelector('#name').value.trim();
+        const email = contactForm.querySelector('#email').value.trim();
+        const message = contactForm.querySelector('#message').value.trim();
+
+        if (!name || !email || !message) {
+          const feedback = document.getElementById('contact-feedback');
+          feedback.textContent = 'Please complete all required fields.';
+          feedback.style.display = '';
+          return;
+        }
+
+        const contactModal = document.getElementById('modal-contact');
+        closeModal(contactModal);
+        contactForm.reset();
+        showThankYouModal();
+      });
+    }
+
   })();
 </script>
 </html>
