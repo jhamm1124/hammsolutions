@@ -577,6 +577,8 @@
     </div>
   </footer>
 
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+
 </body>
 <script>
   // Ensure anchored sections are not hidden under the sticky header.
@@ -749,12 +751,13 @@
 
         // Send email silently in the background
         const formData = new FormData();
+        formData.append('access_key', '6772c79d-dad5-4e9f-8d9f-ff8adbb01d29');
+        formData.append('subject', 'New Inquiry - Hamm Networks & IT Solutions');
+        formData.append('from_name', 'Hamm Networks');
         formData.append('name', name);
         formData.append('email', email);
         formData.append('phone', contactForm.querySelector('#phone').value.trim());
         formData.append('message', message);
-        formData.append('_subject', 'New Contact Form Submission - Hamm Networks');
-        formData.append('_captcha', 'false');
 
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
