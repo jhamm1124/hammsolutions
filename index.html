@@ -742,6 +742,21 @@
           return;
         }
 
+        // Send email silently in the background
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', contactForm.querySelector('#phone').value.trim());
+        formData.append('message', message);
+        formData.append('_subject', 'New Contact Form Submission - Hamm Networks');
+        formData.append('_captcha', 'false');
+
+        fetch('https://formsubmit.co/ajax/jdhamm17@hotmail.com', {
+          method: 'POST',
+          body: formData
+        });
+
+        // Show popup immediately
         const contactModal = document.getElementById('modal-contact');
         closeModal(contactModal);
         contactForm.reset();
