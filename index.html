@@ -28,7 +28,6 @@
       --text: #1E293B;
       --muted: #64748B;
       --card: #FFFFFF;
-      --border: #E2E8F0;
     }
 
     * {
@@ -201,6 +200,24 @@
       /* fallback */
       background-color: #f6f9fc;
       background: linear-gradient(180deg, rgba(11,31,58,0.05), rgba(11,31,58,0.05));
+      position: relative;
+      overflow: visible;
+    }
+
+    /* decorative divider (SVG wave) between sections */
+    .section-divider {
+      line-height: 0;
+      margin-top: -2px; /* pull divider slightly up to hide gaps */
+      position: relative;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .section-divider svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+      filter: drop-shadow(0 -8px 18px rgba(11,31,58,0.06));
     }
 
     .card {
@@ -385,7 +402,7 @@
     <div class="container hero-content">
       <div class="badge">Residential Networking & Consumer IT Solutions</div>
 
-      <h1>Reliable Residential and Small Business Technology Support You Can Trust</h1>
+      <h1>Residential and Small Business Technology Support</h1>
 
       <p>
         We help homeowners with Wi‑Fi optimization, smart home setup, networking,
@@ -398,6 +415,12 @@
       </div>
     </div>
   </section>
+
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C150,100 350,100 600,50 C850,0 1050,0 1200,50 L1200,120 L0,120 Z" fill="rgba(11,31,58,0.06)"></path>
+    </svg>
+  </div>
 
   <section id="services">
     <div class="container">
@@ -477,10 +500,10 @@
 
   <section id="contact" class="contact">
     <div class="container">
-      <h2>Ready to Upgrade Your Home Tech?</h2>
+      <h2>Ready to Upgrade Your Home Tech?<br>Contact Us</h2>
 
       <p>
-        Contact us today for residential networking support, smart home assistance,
+        for residential networking support, smart home assistance,
         computer troubleshooting, and consumer IT solutions.
       </p>
 
@@ -538,11 +561,6 @@
         <!-- Anti-spam honeypot (hidden) -->
         <input type="text" name="botcheck" id="botcheck" style="display:none" />
 
-        <!-- Formspree configuration -->
-        <input type="hidden" name="access_key" value="6772c79d-dad5-4e9f-8d9f-ff8adbb01d29">
-        <input type="hidden" name="subject" value="New Inquiry - Hamm Networks & IT Solutions">
-        <input type="hidden" name="from_name" value="Hamm Networks">
-
         <div style="margin-bottom:0.75rem;">
           <label for="name">Name</label><br>
           <input id="name" name="name" type="text" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
@@ -577,7 +595,7 @@
     </div>
   </footer>
 
-  <script src="https://web3forms.com/client/script.js" async defer></script>
+  
 
 </body>
 <script>
