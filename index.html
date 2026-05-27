@@ -7,7 +7,7 @@
   <meta name="description" content="HAMM Solutions provides home automation and small-to-medium business support: smart home & office automation, Wi‑Fi/networking, device repair, and trusted on-site technology services in central Pennsylvania." />
   <link rel="canonical" href="https://hammsolutions.com/" />
   <meta name="robots" content="index, follow" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://api.web3forms.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://api.web3forms.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; upgrade-insecure-requests;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://api.web3forms.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self'; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; upgrade-insecure-requests;" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
   <meta name="theme-color" content="#0B1F3A" />
@@ -807,7 +807,7 @@
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
+      contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const botcheck = contactForm.querySelector('#botcheck');
@@ -824,26 +824,34 @@
           return;
         }
 
-        // Send email silently in the background
         const formData = new FormData();
-        formData.append('access_key', '6772c79d-dad5-4e9f-8d9f-ff8adbb01d29');
-        formData.append('subject', 'New Inquiry - HAMM Solutions');
-        formData.append('from_name', 'HAMM Solutions');
         formData.append('name', name);
         formData.append('email', email);
         formData.append('phone', contactForm.querySelector('#phone').value.trim());
         formData.append('message', message);
 
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
+        try {
+          const res = await fetch('/contact', {
+            method: 'POST',
+            body: formData
+          });
+          const json = await res.json();
 
-        // Show popup immediately
-        const contactModal = document.getElementById('modal-contact');
-        closeModal(contactModal);
-        contactForm.reset();
-        showThankYouModal();
+          if (json.success) {
+            const contactModal = document.getElementById('modal-contact');
+            closeModal(contactModal);
+            contactForm.reset();
+            showThankYouModal();
+          } else {
+            const feedback = document.getElementById('contact-feedback');
+            feedback.textContent = 'Something went wrong. Please try again.';
+            feedback.style.display = '';
+          }
+        } catch (err) {
+          const feedback = document.getElementById('contact-feedback');
+          feedback.textContent = 'Something went wrong. Please try again.';
+          feedback.style.display = '';
+        }
       });
     }
 
