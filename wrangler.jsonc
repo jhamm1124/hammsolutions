@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hammsolutions",
   "compatibility_date": "2026-05-27",
+  "main": "src/index.js",
   "observability": {
     "enabled": true
   },
