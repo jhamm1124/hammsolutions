@@ -1,6 +1,6 @@
-Hamm Networks — Cloudflare Pages notes
+HAMM Solutions — Cloudflare Pages notes
 
-This repository contains a single-page site and a Cloudflare Pages Functions handler for the contact form.
+This repository contains a single-page site and a Cloudflare Pages Functions handler for the contact form for HAMM Solutions. The site serves homeowners and small-to-medium businesses with home/office automation, networking, and on-site IT services.
 
 What I changed:
 - Replaced anchor/button links to open the contact form as an accessible modal popup in `Index.html`.
