@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://hammsolutions.com/sitemap.xml
+Host: hammsolutions.com

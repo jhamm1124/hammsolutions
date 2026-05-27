@@ -5,16 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HAMM Solutions — Helping Automation Mean More</title>
   <meta name="description" content="HAMM Solutions provides home automation and small-to-medium business support: smart home & office automation, Wi‑Fi/networking, device repair, and trusted on-site technology services in central Pennsylvania." />
-  <link rel="canonical" href="https://yourdomain.com/" />
+  <link rel="canonical" href="https://hammsolutions.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://api.web3forms.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://api.web3forms.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
+  <meta name="theme-color" content="#0B1F3A" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <link rel="alternate" href="https://hammsolutions.com/" hreflang="en" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
   <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="HAMM Solutions" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="HAMM Solutions — Helping Automation Mean More" />
   <meta property="og:description" content="Home automation and small-to-medium business support: networking, smart home & office automation, and device services across central Pennsylvania." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:url" content="https://hammsolutions.com/" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="HAMM Solutions smart home and business automation" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="HAMM Solutions — Helping Automation Mean More" />
   <meta name="twitter:description" content="Home automation and small-to-medium business support: networking, smart automation, and device services in central Pennsylvania." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
+  <meta name="twitter:image:alt" content="Home automation setup and business IT support" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +60,28 @@
     /* Enable smooth scrolling for in-page links */
     html {
       scroll-behavior: smooth;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0.75rem 1rem;
+      background: var(--navy);
+      color: white;
+      border-radius: 0.5rem;
+      z-index: 2000;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
     }
 
     a {
@@ -382,7 +417,15 @@
     "name": "HAMM Solutions",
     "description": "Home automation and small-to-medium business support: smart home & office automation, networking, Wi‑Fi optimization, device repair, and on-site technology consulting.",
     "telephone": "+1-717-555-1234",
-    "url": "https://yourdomain.com/",
+    "url": "https://hammsolutions.com/",
+    "logo": "https://hammsolutions.com/images/MainLogo.png",
+    "image": "https://hammsolutions.com/images/MainLogo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Harrisburg",
+      "addressRegion": "PA",
+      "addressCountry": "US"
+    },
     "areaServed": [
       { "@type": "City", "name": "Harrisburg" },
       { "@type": "City", "name": "York" },
@@ -397,7 +440,7 @@
 
   <header>
     <div class="container">
-      <nav>
+      <nav aria-label="Primary navigation">
         <div class="logo">HAMM <span>Solutions</span></div>
 
         <div class="nav-links">
@@ -408,6 +451,8 @@
       </nav>
     </div>
   </header>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content">
 
   <section class="hero">
     <div class="container hero-content">
@@ -525,6 +570,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Modals for services -->
   <div id="modal-networking" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
