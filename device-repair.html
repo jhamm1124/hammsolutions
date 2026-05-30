@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Device Repair | HAMM Solutions</title>
+  <meta name="description" content="Device repair services for hardware diagnostics, software fixes, and on-site repairs from HAMM Solutions." />
+  <link rel="canonical" href="https://hammsolutions.com/device-repair.html" />
+  <link rel="icon" href="images/Favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #0B1F3A; --gold: #C9A227; --light: #F5F7FA; --text: #1E293B; --muted: #64748B; --card: #FFFFFF; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--light); color:var(--text); line-height:1.6; }
+    html { scroll-behavior:smooth; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px,92%); margin:0 auto; }
+    header { background:var(--navy); color:white; padding:1rem 0; }
+    nav { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:1.25rem; font-weight:800; letter-spacing:0.5px; }
+    .logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:1rem; }
+    .nav-links a { color:white; font-weight:500; }
+    .nav-links a:hover { color:var(--gold); }
+    .hero { background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)), url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1920&auto=format&fit=crop') center/cover; color:white; padding:7rem 0; }
+    .hero h1 { font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem; }
+    .hero p { max-width:700px; color:rgba(255,255,255,0.9); margin-bottom:2rem; }
+    .btn { display:inline-block; padding:0.95rem 1.5rem; border-radius:14px; font-weight:600; transition:0.25s ease; }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { transform:translateY(-2px); }
+    .section-title { margin-bottom:2rem; }
+    .section-title h2 { font-size:2.2rem; color:var(--navy); margin-bottom:0.75rem; }
+    .section-title p { color:var(--muted); max-width:720px; }
+    .content-grid { display:grid; gap:2rem; grid-template-columns:1fr; }
+    .gallery-grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:2rem; }
+    .gallery-card { background:var(--card); border:1px solid rgba(11,31,58,0.08); border-radius:18px; overflow:hidden; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
+    .gallery-card img { display:block; width:100%; height:230px; object-fit:cover; }
+    .gallery-card p { padding:1rem; color:var(--muted); font-size:0.98rem; }
+    .card { background:var(--card); border:1px solid rgba(11,31,58,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
+    .card h3 { color:var(--navy); margin-bottom:1rem; }
+    .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
+    .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
+    .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
+    footer { background:#071427; color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
+    @media (min-width:768px) { .content-grid { grid-template-columns: 1.2fr 0.8fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <div class="logo">HAMM <span>Solutions</span></div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Device Repair</h1>
+      <p>Fast, practical repair support for computers, tablets, phones, and other consumer devices in central Pennsylvania.</p>
+      <a href="index.html#services" class="btn btn-primary">View All Services</a>
+    </div>
+  </section>
+
+  <main class="container" style="padding:4rem 0;">
+    <div class="section-title">
+      <h2>Repair Services</h2>
+      <p>Delivering honest diagnostics and repair recommendations for devices that are slow, broken, or unreliable.</p>
+    </div>
+
+    <div class="content-grid">
+      <div class="card">
+        <h3>Diagnostics & Estimates</h3>
+        <p>We inspect hardware and software, identify failures, and explain whether repair or replacement is the better option.</p>
+        <ul>
+          <li>Hardware testing and system analysis</li>
+          <li>Repair estimates with transparent pricing</li>
+          <li>Component replacement when practical</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>On-Site Support</h3>
+        <p>Many repairs and adjustments can be handled on-site, keeping your devices working without unnecessary delays.</p>
+        <ul>
+          <li>Software repair and reconfiguration</li>
+          <li>Minor hardware replacements and calibrations</li>
+          <li>Advice on maintaining device longevity</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section-title">
+      <h2>Repair Work Examples</h2>
+      <p>Photos of completed repair and diagnostic work, showing the kinds of devices and issues we handle every day.</p>
+    </section>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop" alt="Device repair work" />
+        <p>On-site repair work for a mobile device with hardware and software issues.</p>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Tech repair diagnostic" />
+        <p>Diagnostic and repair preparation for a computer maintenance call.</p>
+      </div>
+    </div>
+
+    <section class="contact-cta" style="margin-top:3rem;">
+      <h2>Need a device fixed?</h2>
+      <p>We make it easy to get a clear repair path and the support you need to restore your device.</p>
+      <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 HAMM Solutions • Helping Automation Mean More • <a href="tel:+17177362544" style="color:inherit; text-decoration:underline;">(717) 736-2544</a></div>
+  </footer>
+</body>
+</html>
