@@ -22,9 +22,33 @@
     .logo { font-size:1.25rem; font-weight:800; letter-spacing:0.5px; }
     .logo span { color:var(--gold); }
     .nav-links { display:flex; gap:1rem; }
-    .nav-links a { color:white; font-weight:500; }
-    .nav-links a:hover { color:var(--gold); }
-    .hero { background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop') center/cover; color:white; padding:7rem 0; }
+    .nav-links a,
+    .dropdown-toggle {
+      color:white;
+      background:transparent;
+      border:none;
+      font:inherit;
+      cursor:pointer;
+      padding:0;
+    }
+
+    .nav-links a:hover,
+    .dropdown-toggle:hover,
+    .dropdown-toggle:focus {
+      color:var(--gold);
+      transition:color 0.2s ease;
+    }
+
+    .dropdown { position: relative; }
+    .dropdown-menu { position:absolute; top:calc(100% + 0.5rem); right:0; min-width:220px; background:white; border-radius:14px; box-shadow:0 18px 40px rgba(2,6,23,0.15); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index:1000; }
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu,
+    .dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+    .dropdown-menu a { display:block; padding:0.95rem 1rem; color:var(--navy); border-bottom:1px solid rgba(11,31,58,0.08); font-weight:500; transition:background 0.18s ease; }
+    .dropdown-menu a:last-child { border-bottom:none; }
+    .dropdown-menu a:hover, .dropdown-menu a:focus { background:rgba(201,162,39,0.08); }
+    .dropdown-toggle::after { content: '▾'; display:inline-block; margin-left:0.35rem; font-size:0.9rem; }
+    .hero { background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230b1f3a'/%3E%3Cstop offset='1' stop-color='%23152a4e'/%3E%3C/linearGradient%3E%3ClinearGradient id='glass' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23274058'/%3E%3Cstop offset='1' stop-color='%231b2d45'/%3E%3C/linearGradient%3E%3ClinearGradient id='tech' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2392fc92'/%3E%3Cstop offset='1' stop-color='%2331b180'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23bg)'/%3E%3Cpath d='M180 320 L600 140 L1020 320 V520 H180 Z' fill='%23203a51' stroke='%2392fc92' stroke-width='8'/%3E%3Cpath d='M230 520 V360 H520 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M520 520 V340 H760 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M760 520 V360 H970 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M320 400 H440 V480 H320 Z' fill='%233a4d70'/%3E%3Cpath d='M540 380 H680 V460 H540 Z' fill='%233a4d70'/%3E%3Cpath d='M780 400 H900 V480 H780 Z' fill='%233a4d70'/%3E%3Ccircle cx='380' cy='520' r='18' fill='%2392fc92'/%3E%3Ccircle cx='620' cy='520' r='18' fill='%2392fc92'/%3E%3Ccircle cx='860' cy='520' r='18' fill='%2392fc92'/%3E%3Cpath d='M560 180 L520 140 L480 180' fill='none' stroke='%2392fc92' stroke-width='12' stroke-linecap='round'/%3E%3Crect x='520' y='140' width='160' height='90' rx='20' fill='%23233b57' stroke='%2392fc92' stroke-width='6'/%3E%3Crect x='560' y='170' width='80' height='12' rx='6' fill='%2392fc92'/%3E%3Ccircle cx='630' cy='220' r='8' fill='%2392fc92'/%3E%3Cpath d='M520 260 C520 240 580 240 580 260 S640 280 640 260' fill='none' stroke='%2392fc92' stroke-width='8'/%3E%3Cpath d='M240 390 C240 350 280 320 320 320 C360 320 400 350 400 390' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Ccircle cx='320' cy='360' r='24' fill='%23384d6c' stroke='%2392fc92' stroke-width='5'/%3E%3Cpath d='M300 360 H340 M320 340 V380' stroke='%2392fc92' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M900 360 C900 320 920 300 940 300 C960 300 980 320 980 360' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Crect x='920' y='326' width='30' height='30' rx='8' fill='%23384d6c' stroke='%2392fc92' stroke-width='5'/%3E%3Cpath d='M930 340 H950 M940 330 V350' stroke='%2392fc92' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M520 415 L480 455 L560 455 Z' fill='%2392fc92'/%3E%3Cpath d='M670 420 L690 420 L690 445 L670 445 Z' fill='%2392fc92'/%3E%3Cpath d='M640 430 L660 430 L650 460 Z' fill='%2392fc92'/%3E%3Cpath d='M780 350 L850 325 L820 400 Z' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Cpath d='M540 510 C580 480 620 480 660 510' stroke='%2392fc92' stroke-width='6' fill='none'/%3E%3Ctext x='300' y='560' font-family='Inter, sans-serif' font-size='28' fill='%2392fc92'%3ESmart home tech inside%3C/text%3E%3C/svg%3E") center/cover no-repeat; color:white; padding:7rem 0; }
     .hero h1 { font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem; }
     .hero p { max-width:700px; color:rgba(255,255,255,0.9); margin-bottom:2rem; }
     .btn { display:inline-block; padding:0.95rem 1.5rem; border-radius:14px; font-weight:600; transition:0.25s ease; }
@@ -53,6 +77,15 @@
       <nav aria-label="Primary navigation">
         <div class="logo">HAMM <span>Solutions</span></div>
         <div class="nav-links">
+          <div class="dropdown">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
+            <div class="dropdown-menu" role="menu" aria-label="Service pages">
+              <a href="networking.html">Networking</a>
+              <a href="computer-support.html">Computer Support</a>
+              <a href="smart-home-setup.html">Smart Home Setup</a>
+              <a href="device-repair.html">Device Repair</a>
+            </div>
+          </div>
           <a href="index.html">Home</a>
           <a href="index.html#contact">Contact</a>
         </div>
@@ -121,5 +154,29 @@
   <footer>
     <div class="container">© 2026 HAMM Solutions • Helping Automation Mean More • <a href="tel:+17177362544" style="color:inherit; text-decoration:underline;">(717) 736-2544</a></div>
   </footer>
+<script>
+  const serviceDropdownButton = document.querySelector('.dropdown-toggle');
+  const serviceDropdown = document.querySelector('.dropdown');
+  if (serviceDropdownButton && serviceDropdown) {
+    serviceDropdownButton.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      serviceDropdown.classList.toggle('open', !expanded);
+    });
+    document.addEventListener('click', function(event) {
+      if (!serviceDropdown.contains(event.target)) {
+        serviceDropdownButton.setAttribute('aria-expanded', 'false');
+        serviceDropdown.classList.remove('open');
+      }
+    });
+    serviceDropdownButton.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        this.setAttribute('aria-expanded', 'false');
+        serviceDropdown.classList.remove('open');
+        this.blur();
+      }
+    });
+  }
+</script>
 </body>
 </html>
