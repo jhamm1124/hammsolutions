@@ -466,63 +466,6 @@
       font-size: 0.95rem;
     }
 
-    /* Modal / Popup styles */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(2,6,23,0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.18s ease;
-    }
-
-    .modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: var(--card);
-      color: var(--text);
-      max-width: 720px;
-      width: calc(100% - 2rem);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-      box-shadow: 0 20px 40px rgba(2,6,23,0.35);
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: transparent;
-      border: none;
-      font-size: 1.25rem;
-      cursor: pointer;
-      color: var(--muted);
-      padding: 0.5rem;
-      line-height: 1;
-    }
-
-    .modal h3 { margin-top: 0; color: var(--navy); }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .modal-actions a {
-      display: inline-flex;
-      align-items: center;
-    }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -539,6 +482,13 @@
 
       .btn {
         text-align: center;
+      }
+
+      .card .microcopy {
+        position: static;
+        opacity: 1;
+        transform: none;
+        margin-top: 1rem;
       }
     }
   </style>
@@ -607,7 +557,7 @@
       </p>
 
       <div class="hero-buttons">
-        <button class="btn btn-primary" data-modal="modal-contact">Get a Free Quote</button>
+        <a class="btn btn-primary" href="mailto:info@hammsolutions.com">Get a Free Quote</a>
         <a href="#services" class="btn btn-secondary">View Services</a>
       </div>
     </div>
@@ -629,41 +579,41 @@
       </div>
 
       <div class="services-grid">
-        <div class="card" data-modal="modal-networking" tabindex="0" role="button" aria-controls="modal-networking">
+        <a class="card" href="networking.html">
           <div class="card-icon">🌐</div>
           <h3>Networking</h3>
           <p>
             Wi‑Fi optimization, router setup, mesh systems, Ethernet installation, and network troubleshooting.
           </p>
           <span class="microcopy" aria-hidden="true">Click for details</span>
-        </div>
+        </a>
 
-        <div class="card" data-modal="modal-computer" tabindex="0" role="button" aria-controls="modal-computer">
+        <a class="card" href="computer-support.html">
           <div class="card-icon">💻</div>
           <h3>Computer Support</h3>
           <p>
             PC troubleshooting, upgrades, virus cleanup, performance optimization, and device setup.
           </p>
           <span class="microcopy" aria-hidden="true">Click for details</span>
-        </div>
+        </a>
 
-        <div class="card" data-modal="modal-smart" tabindex="0" role="button" aria-controls="modal-smart">
+        <a class="card" href="smart-home-setup.html">
           <div class="card-icon">📱</div>
           <h3>Smart Home Setup</h3>
           <p>
             Smart TVs, cameras, streaming devices, speakers, thermostats, and home automation support.
           </p>
           <span class="microcopy" aria-hidden="true">Click for details</span>
-        </div>
+        </a>
 
-        <div class="card" data-modal="modal-repair" tabindex="0" role="button" aria-controls="modal-repair">
+        <a class="card" href="device-repair.html">
           <div class="card-icon">🛠️</div>
           <h3>Device Repair</h3>
           <p>
             Hardware diagnostics, software fixes, and repair guidance for consumer technology.
           </p>
           <span class="microcopy" aria-hidden="true">Click for details</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -711,97 +661,11 @@
   <p style="margin-top:0.75rem; color:rgba(255,255,255,0.9); font-weight:600;">Service area: Harrisburg, York, Carlisle, Lancaster & surrounding central PA.</p>
 
       <div class="contact-buttons">
-  <button class="btn btn-primary" data-modal="modal-contact">Email Us</button>
+        <a class="btn btn-primary" href="mailto:info@hammsolutions.com">Email Us</a>
       </div>
     </div>
   </section>
   </main>
-
-  <!-- Modals for services -->
-  <div id="modal-networking" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">✕</button>
-      <h3>Home Networking — What we do</h3>
-      <p>We audit your current setup, optimize Wi‑Fi coverage using channel planning and placement, recommend and install mesh or business-grade systems, run Ethernet where needed, and secure your network with guest segmentation and password policies.</p>
-      <p><strong>Typical visit:</strong> Network survey, router/mesh setup, speed testing, and brief user training.</p>
-      <div class="modal-actions">
-        <a href="networking.html" class="btn btn-primary">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-computer" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">✕</button>
-      <h3>Computer Support — What we do</h3>
-      <p>We diagnose software and hardware issues, remove malware, perform performance tuning, recommend and install upgrades, back up important data, and configure systems for better reliability and speed.</p>
-      <p><strong>Typical visit:</strong> Full diagnostic, cleanup, and actionable recommendations.</p>
-      <div class="modal-actions">
-        <a href="computer-support.html" class="btn btn-primary">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-smart" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">✕</button>
-      <h3>Smart Home Setup — What we do</h3>
-      <p>We connect and configure smart devices (TVs, cameras, speakers, thermostats), integrate automations, ensure secure device onboarding, and help you choose compatible ecosystems for long-term reliability.</p>
-      <p><strong>Typical visit:</strong> Device integration, testing, and user walkthrough of automations.</p>
-      <div class="modal-actions">
-        <a href="smart-home-setup.html" class="btn btn-primary">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-repair" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">✕</button>
-      <h3>Device Repair — What we do</h3>
-      <p>We perform hardware diagnostics, replace or repair components where feasible, reimage devices, and provide guidance on economical replacement versus repair options.</p>
-      <p><strong>Typical visit:</strong> Diagnostic and repair estimate; minor repairs performed on-site when possible.</p>
-      <div class="modal-actions">
-        <a href="device-repair.html" class="btn btn-primary">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact modal -->
-  <div id="modal-contact" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">✕</button>
-      <h3>Contact Us</h3>
-      <form id="contact-form">
-        <!-- Anti-spam honeypot (hidden) -->
-        <input type="text" name="botcheck" id="botcheck" style="display:none" />
-
-        <div style="margin-bottom:0.75rem;">
-          <label for="name">Name</label><br>
-          <input id="name" name="name" type="text" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
-        </div>
-
-        <div style="margin-bottom:0.75rem;">
-          <label for="email">Email</label><br>
-          <input id="email" name="email" type="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" title="Enter a valid email address" style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
-        </div>
-
-        <div style="margin-bottom:0.75rem;">
-          <label for="phone">Phone</label><br>
-          <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" pattern="^\\+?1?\s*(?:\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$" title="Enter a US phone number, e.g. (123) 456-7890 or 123-456-7890" required style="width:100%; padding:0.5rem; margin-top:0.25rem;" />
-        </div>
-
-        <div style="margin-bottom:0.75rem;">
-          <label for="message">Message</label><br>
-          <textarea id="message" name="message" rows="5" required style="width:100%; padding:0.5rem; margin-top:0.25rem;"></textarea>
-        </div>
-
-        <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
-          <button type="submit" class="btn btn-primary">Send</button>
-        </div>
-        <div id="contact-feedback" style="margin-top:0.75rem; color:var(--muted); display:none;" role="status" aria-live="polite"></div>
-      </form>
-    </div>
-  </div>
 
   <footer>
     <div class="container">
@@ -845,7 +709,7 @@
     const serviceDropdown = document.querySelector('.dropdown');
 
     if (serviceDropdownButton && serviceDropdown) {
-      serviceDropdownButton.addEventListener('click', function(e) {
+      serviceDropdownButton.addEventListener('click', function() {
         const expanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', String(!expanded));
         serviceDropdown.classList.toggle('open', !expanded);
@@ -866,213 +730,6 @@
         }
       });
     }
-
-    // Modal handling
-    const modals = document.querySelectorAll('.modal');
-    const triggers = document.querySelectorAll('[data-modal]');
-    let lastActiveElement = null;
-
-    function openModal(id, trigger) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      lastActiveElement = trigger || document.activeElement;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      const close = modal.querySelector('.modal-close');
-      // move focus into modal
-      if (close) close.focus();
-      // prevent background scroll
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(modal) {
-      if (!modal) return;
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (lastActiveElement) lastActiveElement.focus();
-    }
-
-    triggers.forEach(t => {
-      const id = t.getAttribute('data-modal');
-      t.addEventListener('click', () => openModal(id, t));
-      t.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModal(id, t);
-        }
-      });
-    });
-
-    modals.forEach(m => {
-      m.addEventListener('click', (e) => {
-        if (e.target === m) closeModal(m);
-      });
-      const close = m.querySelector('.modal-close');
-      if (close) close.addEventListener('click', () => closeModal(m));
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.active').forEach(m => closeModal(m));
-      }
-    });
-
-    // Thank-you modal helpers (used by contact form submit handler)
-    function showThankYouModal() {
-      // Create modal overlay
-      const modalOverlay = document.createElement('div');
-      modalOverlay.className = 'modal-overlay';
-      modalOverlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        font-family: inherit;
-      `;
-
-      // Create modal content
-      const modalContent = document.createElement('div');
-      modalContent.className = 'modal-content';
-      modalContent.style.cssText = `
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        text-align: center;
-        max-width: 420px;
-        width: 90%;
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-      `;
-
-      modalContent.innerHTML = `
-        <div class="success-icon" style="font-size: 3.5rem; color: #28a745; margin-bottom: 1rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07.02L11.03 8.1a.75.75 0 1 0-1.06-1.06L7.5 9.44 6.03 7.97a.75.75 0 1 0-1.06 1.06l1.99 2z"/>
-          </svg>
-        </div>
-        <h2>Thank You!</h2>
-        <p class="text-muted" style="color:#6c757d;">Your message has been sent successfully. We'll get back to you soon!</p>
-        <div class="countdown" style="font-size: 0.9rem; color: #6c757d; margin-top: 1rem;">This message will close in <span id="thank-countdown">4</span> seconds...</div>
-        <button class="btn btn-primary" id="thank-close" style="margin-top: 1.5rem;">Close</button>
-      `;
-
-      modalOverlay.appendChild(modalContent);
-      document.body.appendChild(modalOverlay);
-
-      // Countdown timer
-      let countdown = 4;
-      const countdownElement = modalContent.querySelector('#thank-countdown');
-
-      const timer = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown <= 0) {
-          clearInterval(timer);
-          closeModalOverlay();
-        }
-      }, 1000);
-
-      // Close handler
-      function closeModalOverlay() {
-        clearInterval(timer);
-        if (modalOverlay && modalOverlay.parentNode) modalOverlay.parentNode.removeChild(modalOverlay);
-      }
-
-      modalContent.querySelector('#thank-close').addEventListener('click', closeModalOverlay);
-    }
-
-    // Contact form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const botcheck = contactForm.querySelector('#botcheck');
-        if (botcheck && botcheck.value) return;
-
-        const name = contactForm.querySelector('#name').value.trim();
-        const email = contactForm.querySelector('#email').value.trim();
-        const phone = contactForm.querySelector('#phone').value.trim();
-        const message = contactForm.querySelector('#message').value.trim();
-        const feedback = document.getElementById('contact-feedback');
-
-        // Basic client-side validation
-        const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ'’\.\-\s]{2,}$/u;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phonePattern = /^\+?1?\s*(?:\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
-
-        if (!name || !email || !phone || !message) {
-          if (feedback) {
-            feedback.textContent = 'Please complete all required fields.';
-            feedback.style.color = '';
-            feedback.style.display = '';
-          }
-          return;
-        }
-
-        if (!namePattern.test(name)) {
-          if (feedback) {
-            feedback.textContent = 'Please enter a valid name (letters, spaces, hyphens).';
-            feedback.style.display = '';
-          }
-          return;
-        }
-
-        if (!emailPattern.test(email)) {
-          if (feedback) {
-            feedback.textContent = 'Please enter a valid email address.';
-            feedback.style.display = '';
-          }
-          return;
-        }
-
-        if (!phonePattern.test(phone)) {
-          if (feedback) {
-            feedback.textContent = 'Please enter a valid US phone number, e.g. (123) 456-7890.';
-            feedback.style.display = '';
-          }
-          return;
-        }
-
-        try {
-          const res = await fetch('https://contact-form-hammsolutions.jdhamm17.workers.dev', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: name,
-              email: email,
-              phone: contactForm.querySelector('#phone').value.trim(),
-              message: message
-            })
-          });
-
-          if (!res.ok) {
-            throw new Error('Unable to send message. Please try again later.');
-          }
-
-          if (feedback) {
-            feedback.textContent = 'Message sent successfully! Thank you.';
-            feedback.style.color = '#d1fae5';
-            feedback.style.display = '';
-          }
-          contactForm.reset();
-          showThankYouModal();
-        } catch (err) {
-          if (feedback) {
-            feedback.textContent = 'There was an error sending your message. Please try again later.';
-            feedback.style.display = '';
-          }
-          console.error('Contact form error:', err);
-        }
-      });
-    }
-
   })();
 </script>
 </html>
