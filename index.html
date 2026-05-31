@@ -58,7 +58,6 @@
       line-height: 1.6;
     }
 
-    /* Enable smooth scrolling for in-page links */
     html {
       scroll-behavior: smooth;
     }
@@ -259,6 +258,10 @@
       border-radius: 14px;
       font-weight: 600;
       transition: 0.25s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
     }
 
     .btn-primary {
@@ -294,7 +297,7 @@
       font-size: 2.2rem;
       margin-bottom: 0.75rem;
       color: var(--navy);
-      background: rgba(201,162,39,0.08); /* pale gold pill to contrast with white cards */
+      background: rgba(201,162,39,0.08);
       padding: 0.4rem 0.9rem;
       border-radius: 999px;
       box-shadow: 0 6px 18px rgba(2,6,23,0.04);
@@ -340,19 +343,16 @@
       gap: 1.5rem;
     }
 
-    /* Make the services section subtly contrast so white cards stand out */
     #services {
-      /* fallback */
       background-color: #f6f9fc;
       background: linear-gradient(180deg, rgba(11,31,58,0.05), rgba(11,31,58,0.05));
       position: relative;
       overflow: visible;
     }
 
-    /* decorative divider (SVG wave) between sections */
     .section-divider {
       line-height: 0;
-      margin-top: -2px; /* pull divider slightly up to hide gaps */
+      margin-top: -2px;
       position: relative;
       z-index: 1;
       pointer-events: none;
@@ -466,6 +466,117 @@
       font-size: 0.95rem;
     }
 
+    /* ── Contact Modal ── (outside media query so it works on all screen sizes) */
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .contact-modal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .contact-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(11,31,58,0.6);
+    }
+
+    .contact-modal-panel {
+      position: relative;
+      background: var(--card);
+      color: var(--text);
+      border-radius: 20px;
+      max-width: 560px;
+      width: 92%;
+      padding: 2rem;
+      box-shadow: 0 24px 60px rgba(2,6,23,0.25);
+      z-index: 10;
+    }
+
+    .contact-modal-panel h3 {
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .contact-modal-close:hover {
+      background: rgba(11,31,58,0.06);
+    }
+
+    .contact-modal-panel label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-modal-panel input,
+    .contact-modal-panel textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      transition: border-color 0.15s ease;
+    }
+
+    .contact-modal-panel input:focus,
+    .contact-modal-panel textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .contact-modal-panel textarea {
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      justify-content: flex-end;
+    }
+
+    .btn-cancel {
+      background: rgba(11,31,58,0.06);
+      color: var(--navy);
+    }
+
+    .btn-cancel:hover {
+      background: rgba(11,31,58,0.1);
+    }
+
+    #contact-form-status {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      min-height: 1.4em;
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -488,11 +599,11 @@
         position: static;
         opacity: 1;
         transform: none;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
       }
     }
   </style>
-  <!-- LocalBusiness structured data (replace url and sameAs as needed) -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -542,194 +653,292 @@
       </nav>
     </div>
   </header>
+
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <main id="main-content">
 
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="badge">Helping Automation Mean More</div>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="badge">Helping Automation Mean More</div>
 
-      <h1>Helping Automation Mean More</h1>
+        <h1>Helping Automation Mean More</h1>
 
-      <p>
-        We design, install, and support practical smart home and small business automation,
-        optimize home and office networking, and troubleshoot devices so automation improves daily life and business operations.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="mailto:info@hammsolutions.com">Get a Free Quote</a>
-        <a href="#services" class="btn btn-secondary">View Services</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 C150,100 350,100 600,50 C850,0 1050,0 1200,50 L1200,120 L0,120 Z" fill="rgba(11,31,58,0.06)"></path>
-    </svg>
-  </div>
-
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Services</h2>
         <p>
-          Helping families, homeowners, and small-to-medium businesses simplify technology and improve network reliability for home and office.
+          We design, install, and support practical smart home and small business automation,
+          optimize home and office networking, and troubleshoot devices so automation improves daily life and business operations.
         </p>
+
+        <div class="hero-buttons">
+          <button id="hero-quote-btn" class="btn btn-primary">Get a Free Quote</button>
+          <a href="#services" class="btn btn-secondary">View Services</a>
+        </div>
       </div>
+    </section>
 
-      <div class="services-grid">
-        <a class="card" href="networking.html">
-          <div class="card-icon">🌐</div>
-          <h3>Networking</h3>
-          <p>
-            Wi‑Fi optimization, router setup, mesh systems, Ethernet installation, and network troubleshooting.
-          </p>
-          <span class="microcopy" aria-hidden="true">Click for details</span>
-        </a>
-
-        <a class="card" href="computer-support.html">
-          <div class="card-icon">💻</div>
-          <h3>Computer Support</h3>
-          <p>
-            PC troubleshooting, upgrades, virus cleanup, performance optimization, and device setup.
-          </p>
-          <span class="microcopy" aria-hidden="true">Click for details</span>
-        </a>
-
-        <a class="card" href="smart-home-setup.html">
-          <div class="card-icon">📱</div>
-          <h3>Smart Home Setup</h3>
-          <p>
-            Smart TVs, cameras, streaming devices, speakers, thermostats, and home automation support.
-          </p>
-          <span class="microcopy" aria-hidden="true">Click for details</span>
-        </a>
-
-        <a class="card" href="device-repair.html">
-          <div class="card-icon">🛠️</div>
-          <h3>Device Repair</h3>
-          <p>
-            Hardware diagnostics, software fixes, and repair guidance for consumer technology.
-          </p>
-          <span class="microcopy" aria-hidden="true">Click for details</span>
-        </a>
-      </div>
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C150,100 350,100 600,50 C850,0 1050,0 1200,50 L1200,120 L0,120 Z" fill="rgba(11,31,58,0.06)"></path>
+      </svg>
     </div>
-  </section>
 
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-grid">
-        <div>
-          <div class="section-title" style="text-align:left; margin-bottom:1.5rem;">
-            <h2>Why Choose Us?</h2>
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            Helping families, homeowners, and small-to-medium businesses simplify technology and improve network reliability for home and office.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <a class="card" href="networking.html">
+            <div class="card-icon">🌐</div>
+            <h3>Networking</h3>
+            <p>Wi‑Fi optimization, router setup, mesh systems, Ethernet installation, and network troubleshooting.</p>
+            <span class="microcopy" aria-hidden="true">Click for details</span>
+          </a>
+
+          <a class="card" href="computer-support.html">
+            <div class="card-icon">💻</div>
+            <h3>Computer Support</h3>
+            <p>PC troubleshooting, upgrades, virus cleanup, performance optimization, and device setup.</p>
+            <span class="microcopy" aria-hidden="true">Click for details</span>
+          </a>
+
+          <a class="card" href="smart-home-setup.html">
+            <div class="card-icon">📱</div>
+            <h3>Smart Home Setup</h3>
+            <p>Smart TVs, cameras, streaming devices, speakers, thermostats, and home automation support.</p>
+            <span class="microcopy" aria-hidden="true">Click for details</span>
+          </a>
+
+          <a class="card" href="device-repair.html">
+            <div class="card-icon">🛠️</div>
+            <h3>Device Repair</h3>
+            <p>Hardware diagnostics, software fixes, and repair guidance for consumer technology.</p>
+            <span class="microcopy" aria-hidden="true">Click for details</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <div class="section-title" style="text-align:left; margin-bottom:1.5rem;">
+              <h2>Why Choose Us?</h2>
+            </div>
+
+            <p style="margin-bottom:1rem; color:var(--muted);">
+              We believe technology should work for your home — not against it.
+              Our mission is to provide honest, dependable, and easy-to-understand IT support for everyday people.
+            </p>
+
+            <p style="color:var(--muted);">
+              Whether you need stronger Wi‑Fi, help with devices, or a complete smart home setup,
+              we focus on professional service with integrity and reliability.
+            </p>
           </div>
 
-          <p style="margin-bottom:1rem; color:var(--muted);">
-            We believe technology should work for your home — not against it.
-            Our mission is to provide honest, dependable, and easy-to-understand IT support for everyday people.
-          </p>
-
-          <p style="color:var(--muted);">
-            Whether you need stronger Wi‑Fi, help with devices, or a complete smart home setup,
-            we focus on professional service with integrity and reliability.
-          </p>
-        </div>
-
-        <div class="about-box">
-          <h3>Built on Trust</h3>
-
-          <p>
-            Our approach is centered around honesty, patience, and dependable support.
-            We know inviting someone into your home requires trust, and we strive to deliver professional service with excellence.
-          </p>
+          <div class="about-box">
+            <h3>Built on Trust</h3>
+            <p>
+              Our approach is centered around honesty, patience, and dependable support.
+              We know inviting someone into your home requires trust, and we strive to deliver professional service with excellence.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Ready to Upgrade Your Home Tech?<br>Contact Us</h2>
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Ready to Upgrade Your Home Tech?<br>Contact Us</h2>
 
-      <p>
-        for residential and small-to-medium business networking support, smart home and office automation,
-        computer troubleshooting, and on-site IT services.
-      </p>
+        <p>
+          for residential and small-to-medium business networking support, smart home and office automation,
+          computer troubleshooting, and on-site IT services.
+        </p>
 
-  <p style="margin-top:0.75rem; color:rgba(255,255,255,0.9); font-weight:600;">Service area: Harrisburg, York, Carlisle, Lancaster & surrounding central PA.</p>
+        <p style="margin-top:0.75rem; color:rgba(255,255,255,0.9); font-weight:600;">Service area: Harrisburg, York, Carlisle, Lancaster &amp; surrounding central PA.</p>
 
-      <div class="contact-buttons">
-        <a class="btn btn-primary" href="mailto:info@hammsolutions.com">Email Us</a>
+        <div class="contact-buttons">
+          <button id="contact-open-btn" class="btn btn-primary">Contact Us</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal" aria-hidden="true">
+      <div class="contact-modal-overlay" data-action="close" tabindex="-1"></div>
+      <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <button class="contact-modal-close" data-action="close" aria-label="Close contact form">×</button>
+        <h3 id="contact-modal-title">Send us a message</h3>
+        <form id="contact-form" novalidate>
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" />
+
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" />
+
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="6" required></textarea>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-cancel" data-action="close">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+
+          <p id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
-  </section>
+
   </main>
 
   <footer>
     <div class="container">
-  © 2026 HAMM Solutions • Helping Automation Mean More • Residential & Small/Medium Business Support • Call: <a href="tel:+17177362544">(717) 736-2544</a>
+      © 2026 HAMM Solutions • Helping Automation Mean More • Residential &amp; Small/Medium Business Support • Call: <a href="tel:+17177362544">(717) 736-2544</a>
     </div>
   </footer>
 
-  
+  <script>
+    // Scroll padding & smooth anchor scroll
+    (function() {
+      const header = document.querySelector('header');
+
+      function updateScrollPadding() {
+        const h = header ? header.offsetHeight : 0;
+        document.documentElement.style.scrollPaddingTop = h + 'px';
+      }
+
+      updateScrollPadding();
+      window.addEventListener('resize', updateScrollPadding);
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').slice(1);
+          if (!targetId) return;
+          const target = document.getElementById(targetId);
+          if (!target) return;
+          e.preventDefault();
+          const offset = target.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0);
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+          history.pushState(null, '', '#' + targetId);
+        });
+      });
+
+      // Services dropdown
+      const serviceDropdownButton = document.querySelector('.dropdown-toggle');
+      const serviceDropdown = document.querySelector('.dropdown');
+
+      if (serviceDropdownButton && serviceDropdown) {
+        serviceDropdownButton.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          serviceDropdown.classList.toggle('open', !expanded);
+        });
+
+        document.addEventListener('click', function(event) {
+          if (!serviceDropdown.contains(event.target)) {
+            serviceDropdownButton.setAttribute('aria-expanded', 'false');
+            serviceDropdown.classList.remove('open');
+          }
+        });
+
+        serviceDropdownButton.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            this.setAttribute('aria-expanded', 'false');
+            serviceDropdown.classList.remove('open');
+            this.blur();
+          }
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    // Contact modal
+    (function() {
+      const modal = document.getElementById('contact-modal');
+      const openBtn = document.getElementById('contact-open-btn');
+      if (!modal || !openBtn) return;
+
+      const closeElems = modal.querySelectorAll('[data-action="close"]');
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('contact-form-status');
+      const endpoint = 'https://contact-form-hammsolutions.jdhamm17.workers.dev';
+
+      function openModal() {
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const first = form.querySelector('input, textarea');
+        if (first) first.focus();
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        statusEl.textContent = '';
+        openBtn.focus();
+      }
+
+      openBtn.addEventListener('click', openModal);
+
+      const heroQuoteBtn = document.getElementById('hero-quote-btn');
+      if (heroQuoteBtn) heroQuoteBtn.addEventListener('click', openModal);
+
+      closeElems.forEach(el => el.addEventListener('click', closeModal));
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget || e.target.classList.contains('contact-modal-overlay')) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+          name: (form.name.value || '').trim(),
+          email: (form.email.value || '').trim(),
+          message: (form.message.value || '').trim()
+        };
+
+        if (!data.name || !data.email || !data.message) {
+          statusEl.textContent = 'Please complete all fields.';
+          return;
+        }
+
+        statusEl.textContent = 'Sending…';
+
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+            mode: 'cors'
+          });
+
+          if (res.ok) {
+            statusEl.textContent = 'Message sent — thank you!';
+            form.reset();
+            setTimeout(closeModal, 1400);
+          } else {
+            const text = await res.text().catch(() => '');
+            console.error('Contact submit failed', res.status, text);
+            statusEl.textContent = 'Send failed — please try again later.';
+          }
+        } catch (err) {
+          console.error(err);
+          statusEl.textContent = 'Network error — please try again later.';
+        }
+      });
+    })();
+  </script>
 
 </body>
-<script>
-  // Ensure anchored sections are not hidden under the sticky header.
-  (function() {
-    const header = document.querySelector('header');
-    function updateScrollPadding() {
-      const h = header ? header.offsetHeight : 0;
-      document.documentElement.style.scrollPaddingTop = h + 'px';
-    }
-
-    // Initial set and on resize (header height can change on small screens)
-    updateScrollPadding();
-    window.addEventListener('resize', updateScrollPadding);
-
-    // For consistent behavior across browsers, intercept same-page anchor clicks
-    // and perform a smooth scroll that accounts for the header height.
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href').slice(1);
-        if (!targetId) return; // allow top-of-page anchors
-        const target = document.getElementById(targetId);
-        if (!target) return;
-        e.preventDefault();
-        const offset = target.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0);
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-        // update URL without jumping
-        history.pushState(null, '', '#' + targetId);
-      });
-    });
-
-    const serviceDropdownButton = document.querySelector('.dropdown-toggle');
-    const serviceDropdown = document.querySelector('.dropdown');
-
-    if (serviceDropdownButton && serviceDropdown) {
-      serviceDropdownButton.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        serviceDropdown.classList.toggle('open', !expanded);
-      });
-
-      document.addEventListener('click', function(event) {
-        if (!serviceDropdown.contains(event.target)) {
-          serviceDropdownButton.setAttribute('aria-expanded', 'false');
-          serviceDropdown.classList.remove('open');
-        }
-      });
-
-      serviceDropdownButton.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          this.setAttribute('aria-expanded', 'false');
-          serviceDropdown.classList.remove('open');
-          this.blur();
-        }
-      });
-    }
-  })();
-</script>
 </html>
