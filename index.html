@@ -10,7 +10,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://contact-form-hammsolutions.jdhamm17.workers.dev; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
-  <meta name="theme-color" content="#0B1F3A" />
+  <meta name="theme-color" content="#0A0A0A" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
   <link rel="alternate" href="https://hammsolutions.com/" hreflang="en" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
@@ -34,17 +34,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
   <link rel="icon" href="images/Favicon.png" type="image/png">
+  <link rel="stylesheet" href="theme.css">
 
   <style>
-    :root {
-      --navy: #0B1F3A;
-      --gold: #C9A227;
-      --light: #F5F7FA;
-      --text: #1E293B;
-      --muted: #64748B;
-      --card: #FFFFFF;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -185,7 +177,7 @@
       display: block;
       padding: 0.95rem 1rem;
       color: var(--navy);
-      border-bottom: 1px solid rgba(11,31,58,0.08);
+      border-bottom: 1px solid rgba(10,10,10,0.08);
       font-weight: 500;
       transition: background 0.18s ease;
     }
@@ -196,7 +188,7 @@
 
     .dropdown-menu a:hover,
     .dropdown-menu a:focus {
-      background: rgba(201,162,39,0.08);
+      background: rgba(212,175,55,0.08);
     }
 
     .dropdown-toggle::after {
@@ -212,7 +204,7 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)),
+      background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)),
       url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop') center/cover;
       color: white;
       padding: 8rem 0;
@@ -224,9 +216,9 @@
 
     .badge {
       display: inline-block;
-      background: rgba(201,162,39,0.15);
+      background: rgba(212,175,55,0.15);
       color: var(--gold);
-      border: 1px solid rgba(201,162,39,0.4);
+      border: 1px solid rgba(212,175,55,0.4);
       padding: 0.5rem 1rem;
       border-radius: 999px;
       font-size: 0.9rem;
@@ -297,7 +289,7 @@
       font-size: 2.2rem;
       margin-bottom: 0.75rem;
       color: var(--navy);
-      background: rgba(201,162,39,0.08);
+      background: rgba(212,175,55,0.08);
       padding: 0.4rem 0.9rem;
       border-radius: 999px;
       box-shadow: 0 6px 18px rgba(2,6,23,0.04);
@@ -344,8 +336,8 @@
     }
 
     #services {
-      background-color: #f6f9fc;
-      background: linear-gradient(180deg, rgba(11,31,58,0.05), rgba(11,31,58,0.05));
+      background-color: var(--light);
+      background: linear-gradient(180deg, rgba(10,10,10,0.05), rgba(10,10,10,0.05));
       position: relative;
       overflow: visible;
     }
@@ -362,13 +354,13 @@
       display: block;
       width: 100%;
       height: 80px;
-      filter: drop-shadow(0 -8px 18px rgba(11,31,58,0.06));
+      filter: drop-shadow(0 -8px 18px rgba(10,10,10,0.06));
     }
 
     .card {
       position: relative;
       background: var(--card);
-      border: 1px solid rgba(11,31,58,0.06);
+      border: 1px solid rgba(10,10,10,0.06);
       border-radius: 20px;
       padding: 2rem;
       box-shadow: 0 14px 30px rgba(2,6,23,0.06);
@@ -384,7 +376,7 @@
       position: absolute;
       right: 1rem;
       bottom: 1rem;
-      background: rgba(11,31,58,0.06);
+      background: rgba(10,10,10,0.06);
       color: var(--navy);
       padding: 0.35rem 0.6rem;
       border-radius: 999px;
@@ -434,6 +426,88 @@
       color: var(--gold);
     }
 
+    .testimonials {
+      background: var(--light);
+    }
+
+    .section-band {
+      height: 10px;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .section-band::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .testimonial-marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: testimonial-scroll 60s linear infinite;
+    }
+
+    .testimonial-marquee:hover .testimonial-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes testimonial-scroll {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
+
+    .testimonial-card {
+      flex: 0 0 auto;
+      width: 320px;
+      background: var(--card);
+      border: 1px solid rgba(10,10,10,0.06);
+      border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: 0 14px 30px rgba(2,6,23,0.06);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-quote {
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .testimonial-role {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .testimonial-track {
+        animation: none;
+      }
+    }
+
     .contact {
       background: var(--navy);
       color: white;
@@ -459,7 +533,7 @@
     }
 
     footer {
-      background: #071427;
+      background: var(--navy);
       color: rgba(255,255,255,0.75);
       text-align: center;
       padding: 2rem 0;
@@ -483,7 +557,7 @@
     .contact-modal-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(11,31,58,0.6);
+      background: rgba(10,10,10,0.6);
     }
 
     .contact-modal-panel {
@@ -520,7 +594,7 @@
     }
 
     .contact-modal-close:hover {
-      background: rgba(11,31,58,0.06);
+      background: rgba(10,10,10,0.06);
     }
 
     .contact-modal-panel label {
@@ -536,18 +610,20 @@
     .contact-modal-panel textarea {
       width: 100%;
       padding: 0.65rem 0.85rem;
-      border: 1px solid #e2e8f0;
+      border: 1.5px solid rgba(10,10,10,0.35);
       border-radius: 10px;
       font-family: inherit;
       font-size: 1rem;
       color: var(--text);
-      transition: border-color 0.15s ease;
+      background: var(--light);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .contact-modal-panel input:focus,
     .contact-modal-panel textarea:focus {
       outline: none;
       border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
     }
 
     .contact-modal-panel textarea {
@@ -562,12 +638,12 @@
     }
 
     .btn-cancel {
-      background: rgba(11,31,58,0.06);
+      background: rgba(10,10,10,0.06);
       color: var(--navy);
     }
 
     .btn-cancel:hover {
-      background: rgba(11,31,58,0.1);
+      background: rgba(10,10,10,0.1);
     }
 
     #contact-form-status {
@@ -600,6 +676,10 @@
         opacity: 1;
         transform: none;
         margin-top: 1.5rem;
+      }
+
+      .testimonial-card {
+        width: 260px;
       }
     }
   </style>
@@ -678,7 +758,7 @@
 
     <div class="section-divider" aria-hidden="true">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C150,100 350,100 600,50 C850,0 1050,0 1200,50 L1200,120 L0,120 Z" fill="rgba(11,31,58,0.06)"></path>
+        <path d="M0,0 C150,100 350,100 600,50 C850,0 1050,0 1200,50 L1200,120 L0,120 Z" fill="rgba(10,10,10,0.06)"></path>
       </svg>
     </div>
 
@@ -723,6 +803,8 @@
       </div>
     </section>
 
+    <div class="section-band" aria-hidden="true"></div>
+
     <section id="about" class="about">
       <div class="container">
         <div class="about-grid">
@@ -752,6 +834,85 @@
         </div>
       </div>
     </section>
+
+    <div class="section-band" aria-hidden="true"></div>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Customers Say</h2>
+          <p>Real feedback from homeowners and businesses we've helped across central Pennsylvania.</p>
+        </div>
+      </div>
+
+      <div class="testimonial-marquee" aria-label="Customer testimonials">
+        <div class="testimonial-track" role="list">
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <!-- Duplicate set for seamless loop; hidden from assistive tech -->
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-band" aria-hidden="true"></div>
 
     <section id="contact" class="contact">
       <div class="container">

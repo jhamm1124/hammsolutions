@@ -6,12 +6,32 @@
   <title>Computer Support | HAMM Solutions</title>
   <meta name="description" content="Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions." />
   <link rel="canonical" href="https://hammsolutions.com/computer-support.html" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://contact-form-hammsolutions.jdhamm17.workers.dev; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="HAMM Solutions" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Computer Support | HAMM Solutions" />
+  <meta property="og:description" content="Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hammsolutions.com/computer-support.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:image:alt" content="Computer support and troubleshooting" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Computer Support | HAMM Solutions" />
+  <meta name="twitter:description" content="Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="twitter:image:alt" content="Computer support and troubleshooting" />
   <link rel="icon" href="images/Favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
   <style>
-    :root { --navy: #0B1F3A; --gold: #C9A227; --light: #F5F7FA; --text: #1E293B; --muted: #64748B; --card: #FFFFFF; }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Inter',sans-serif; background:var(--light); color:var(--text); line-height:1.6; }
     html { scroll-behavior:smooth; }
@@ -45,10 +65,10 @@
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu,
     .dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
-    .dropdown-menu a { display:block; padding:0.95rem 1rem; color:var(--navy); border-bottom:1px solid rgba(11,31,58,0.08); font-weight:500; transition:background 0.18s ease; }
+    .dropdown-menu a { display:block; padding:0.95rem 1rem; color:var(--navy); border-bottom:1px solid rgba(10,10,10,0.08); font-weight:500; transition:background 0.18s ease; }
     .dropdown-menu a:last-child { border-bottom:none; }
-    .dropdown-menu a:hover, .dropdown-menu a:focus { background:rgba(201,162,39,0.08); }
-    .hero { background: linear-gradient(135deg, rgba(11,31,58,0.95), rgba(11,31,58,0.88)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop') center/cover; color:white; padding:7rem 0; }
+    .dropdown-menu a:hover, .dropdown-menu a:focus { background:rgba(212,175,55,0.08); }
+    .hero { background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop') center/cover; color:white; padding:7rem 0; }
     .hero h1 { font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem; }
     .hero p { max-width:700px; color:rgba(255,255,255,0.9); margin-bottom:2rem; }
     .btn { display:inline-block; padding:0.95rem 1.5rem; border-radius:14px; font-weight:600; transition:0.25s ease; }
@@ -59,17 +79,39 @@
     .section-title p { color:var(--muted); max-width:720px; }
     .content-grid { display:grid; gap:2rem; grid-template-columns:1fr; }
     .gallery-grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:2rem; }
-    .gallery-card { background:var(--card); border:1px solid rgba(11,31,58,0.08); border-radius:18px; overflow:hidden; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
+    .gallery-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:18px; overflow:hidden; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
     .gallery-card img { display:block; width:100%; height:230px; object-fit:cover; }
     .gallery-card p { padding:1rem; color:var(--muted); font-size:0.98rem; }
-    .card { background:var(--card); border:1px solid rgba(11,31,58,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
+    .card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
     .card h3 { color:var(--navy); margin-bottom:1rem; }
     .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
     .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
     .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
-    footer { background:#071427; color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
+    footer { background:var(--navy); color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
     @media (min-width:768px) { .content-grid { grid-template-columns: 1.2fr 0.8fr; } }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Computer Repair & Support",
+    "name": "Computer Support | HAMM Solutions",
+    "description": "Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions.",
+    "url": "https://hammsolutions.com/computer-support.html",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "HAMM Solutions",
+      "telephone": "+1-717-736-2544",
+      "url": "https://hammsolutions.com/"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Harrisburg" },
+      { "@type": "City", "name": "York" },
+      { "@type": "City", "name": "Carlisle" },
+      { "@type": "City", "name": "Lancaster" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header>
