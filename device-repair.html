@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Device repair services for hardware diagnostics, software fixes, and on-site repairs from HAMM Solutions." />
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" />
   <meta name="twitter:image:alt" content="Device repair and diagnostics" />
-  <link rel="icon" href="images/Favicon.png" type="image/png">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,8 +39,11 @@
     .container { width:min(1120px,92%); margin:0 auto; }
     header { background:var(--navy); color:white; padding:1rem 0; }
     nav { display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-size:1.25rem; font-weight:800; letter-spacing:0.5px; }
-    .logo span { color:var(--gold); }
+    .logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; color:white; }
+    .logo-icon { width:clamp(40px, 9vw, 58px); height:clamp(40px, 9vw, 58px); flex-shrink:0; }
+    .logo-text { display:flex; flex-direction:column; line-height:1.15; }
+    .logo-word { font-size:clamp(1.15rem, 3.8vw, 1.55rem); font-weight:800; letter-spacing:0.5px; }
+    .logo-sub { font-size:clamp(0.62rem, 2vw, 0.8rem); font-weight:600; letter-spacing:0.28em; color:var(--gold); }
     .nav-links { display:flex; gap:1rem; }
     .nav-links a,
     .dropdown-toggle {
@@ -117,7 +120,23 @@
   <header>
     <div class="container">
       <nav aria-label="Primary navigation">
-        <div class="logo">HAMM <span>Solutions</span></div>
+        <a href="index.html" class="logo" aria-label="HAMM Solutions home">
+          <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <g fill="none" stroke-width="8" stroke-linecap="round">
+              <path d="M 5.8 49.0 A 54 54 0 0 1 94.2 49.0" stroke="var(--gold)"></path>
+              <path d="M 16.4 56.5 A 41 41 0 0 1 83.6 56.5" stroke="#FFFFFF"></path>
+              <path d="M 27.1 63.9 A 28 28 0 0 1 72.9 63.9" stroke="#FFFFFF"></path>
+            </g>
+            <rect x="35" y="66" width="30" height="26" rx="6" fill="#FFFFFF"></rect>
+            <rect x="41.5" y="70" width="4.5" height="18" rx="1" fill="var(--navy)"></rect>
+            <rect x="54" y="70" width="4.5" height="18" rx="1" fill="var(--navy)"></rect>
+            <rect x="38" y="76.5" width="24" height="4.5" rx="1" fill="var(--gold)"></rect>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-word">HAMM</span>
+            <span class="logo-sub">SOLUTIONS</span>
+          </span>
+        </a>
         <div class="nav-links">
           <div class="dropdown">
             <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
