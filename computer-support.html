@@ -29,7 +29,8 @@
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
   <link rel="stylesheet" href="theme.css">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -62,7 +63,6 @@
       transition:color 0.2s ease;
     }
     .dropdown { position: relative; }
-    .dropdown-toggle:hover, .dropdown-toggle:focus { color:var(--gold); transition:color 0.2s ease; }
     .dropdown-toggle::after { content: '▾'; display:inline-block; margin-left:0.35rem; font-size:0.9rem; }
     .dropdown-menu { position:absolute; top:calc(100% + 0.5rem); right:0; min-width:220px; background:white; border-radius:14px; box-shadow:0 18px 40px rgba(2,6,23,0.15); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index:1000; }
     .dropdown:hover .dropdown-menu,
@@ -88,6 +88,17 @@
     .card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
     .card h3 { color:var(--navy); margin-bottom:1rem; }
     .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
+    .pricing-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); max-width:480px; margin:0 auto; text-align:center; }
+    .pricing-badge { display:inline-block; background:rgba(212,175,55,0.12); color:var(--gold); font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:999px; margin-bottom:1rem; }
+    .pricing-rate { font-size:2.4rem; font-weight:800; color:var(--navy); margin-bottom:0.75rem; }
+    .pricing-rate span { font-size:1.1rem; font-weight:600; color:var(--muted); }
+    .pricing-includes { color:var(--muted); font-size:0.98rem; }
+    .pricing-list { list-style:none; text-align:left; margin:0 0 1rem; }
+    .pricing-list li { display:flex; justify-content:space-between; gap:1rem; padding:0.6rem 0; border-bottom:1px solid rgba(10,10,10,0.06); color:var(--text); }
+    .pricing-list li:last-child { border-bottom:none; }
+    .pricing-list li strong { color:var(--navy); }
+    .pricing-note { text-align:center; color:var(--muted); font-size:0.92rem; margin-top:1.25rem; }
+    .pricing-note a { color:var(--gold); text-decoration:underline; font-weight:600; }
     .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
     .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
     footer { background:var(--navy); color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
@@ -101,6 +112,16 @@
     "name": "Computer Support | HAMM Solutions",
     "description": "Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions.",
     "url": "https://hammsolutions.com/computer-support.html",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "minPrice": 50,
+        "maxPrice": 65,
+        "priceCurrency": "USD",
+        "unitText": "HOUR"
+      }
+    },
     "provider": {
       "@type": "LocalBusiness",
       "name": "HAMM Solutions",
@@ -190,17 +211,30 @@
       </div>
     </div>
 
+    <div id="pricing" style="margin-top:2rem; margin-bottom:3rem;">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <p>Clear hourly pricing for computer support — most sessions start with a quick diagnosis.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-badge">Computer Support Rate</span>
+        <div class="pricing-rate">$50&ndash;$65<span>/hr</span></div>
+        <p class="pricing-includes">Covers diagnostics, malware/virus removal, performance tuning, and general troubleshooting.</p>
+      </div>
+      <p class="pricing-note">Every job starts with an on-site visit ($25&ndash;$40 service call fee, waived if you hire us) so we can quote accurately. Final pricing depends on project scope — <a href="index.html#contact">schedule a visit</a>.</p>
+    </div>
+
     <section class="section-title">
       <h2>Recent Repairs & Support</h2>
       <p>Examples of computer support work we completed, from performance tuning to malware cleanup and system rebuilds.</p>
     </section>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop" alt="Computer repair and setup" />
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Computer repair and setup" />
         <p>Off-site PC optimization and repair to restore performance for a home workstation.</p>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Laptop maintenance and cable setup" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Laptop maintenance and cable setup" />
         <p>Malware cleanup and system maintenance for a personal laptop.</p>
       </div>
     </div>

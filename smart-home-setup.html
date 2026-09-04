@@ -29,7 +29,7 @@
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -88,6 +88,17 @@
     .card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
     .card h3 { color:var(--navy); margin-bottom:1rem; }
     .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
+    .pricing-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); max-width:480px; margin:0 auto; text-align:center; }
+    .pricing-badge { display:inline-block; background:rgba(212,175,55,0.12); color:var(--gold); font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:999px; margin-bottom:1rem; }
+    .pricing-rate { font-size:2.4rem; font-weight:800; color:var(--navy); margin-bottom:0.75rem; }
+    .pricing-rate span { font-size:1.1rem; font-weight:600; color:var(--muted); }
+    .pricing-includes { color:var(--muted); font-size:0.98rem; }
+    .pricing-list { list-style:none; text-align:left; margin:0 0 1rem; }
+    .pricing-list li { display:flex; justify-content:space-between; gap:1rem; padding:0.6rem 0; border-bottom:1px solid rgba(10,10,10,0.06); color:var(--text); }
+    .pricing-list li:last-child { border-bottom:none; }
+    .pricing-list li strong { color:var(--navy); }
+    .pricing-note { text-align:center; color:var(--muted); font-size:0.92rem; margin-top:1.25rem; }
+    .pricing-note a { color:var(--gold); text-decoration:underline; font-weight:600; }
     .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
     .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
     footer { background:var(--navy); color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
@@ -101,6 +112,16 @@
     "name": "Smart Home Setup | HAMM Solutions",
     "description": "Smart home setup and device integration services for TVs, cameras, speakers, thermostats, and automations from HAMM Solutions.",
     "url": "https://hammsolutions.com/smart-home-setup.html",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "minPrice": 85,
+        "maxPrice": 100,
+        "priceCurrency": "USD",
+        "unitText": "HOUR"
+      }
+    },
     "provider": {
       "@type": "LocalBusiness",
       "name": "HAMM Solutions",
@@ -190,17 +211,30 @@
       </div>
     </div>
 
+    <div id="pricing" style="margin-top:2rem; margin-bottom:3rem;">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <p>Hourly pricing for smart home installation and automation work.</p>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-badge">Smart Home Rate</span>
+        <div class="pricing-rate">$85&ndash;$100<span>/hr</span></div>
+        <p class="pricing-includes">Covers device setup, integration, and automation configuration for TVs, cameras, speakers, and full smart home ecosystems.</p>
+      </div>
+      <p class="pricing-note">Every job starts with an on-site visit ($25&ndash;$40 service call fee, waived if you hire us) so we can quote accurately. Final pricing depends on project scope — <a href="index.html#contact">schedule a visit</a>.</p>
+    </div>
+
     <section class="section-title">
       <h2>Installed Smart Home Systems</h2>
       <p>Recent smart home projects that include device integration, automation setup, and secure system configuration.</p>
     </section>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Smart home device setup" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Smart home device setup" />
         <p>Smart outlets and voice assistant integration for a modern home.</p>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop" alt="Home automation control setup" />
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Home automation control setup" />
         <p>Smart lights, speakers, and thermostats integrated into a cohesive smart home ecosystem.</p>
       </div>
     </div>

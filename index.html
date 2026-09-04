@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920&auto=format&fit=crop" />
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="theme.css">
@@ -728,8 +728,9 @@
     "description": "Smart home and business automation, Wi-Fi networking, computer support, and device repair. Serving central Pennsylvania.",
     "telephone": "+1-717-736-2544",
     "url": "https://hammsolutions.com/",
-    "logo": "https://hammsolutions.com/images/MainLogo.png",
-    "image": "https://hammsolutions.com/images/MainLogo.png",
+    "priceRange": "$25-$150",
+    "logo": "https://hammsolutions.com/images/favicon.svg",
+    "image": "https://hammsolutions.com/images/favicon.svg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Harrisburg",
@@ -802,7 +803,7 @@
         </p>
 
         <div class="hero-buttons">
-          <button id="hero-quote-btn" class="btn btn-primary">Get a Free Quote</button>
+          <button id="hero-quote-btn" class="btn btn-primary">Request a Quote</button>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
       </div>
@@ -1090,19 +1091,65 @@
       const closeElems = modal.querySelectorAll('[data-action="close"]');
       const form = document.getElementById('contact-form');
       const statusEl = document.getElementById('contact-form-status');
+      const submitBtn = form.querySelector('button[type="submit"]');
       const endpoint = 'https://contact-form-hammsolutions.jdhamm17.workers.dev';
+
+      const COOLDOWN_MS = 2 * 60 * 1000; // 2 minutes
+      const COOLDOWN_KEY = 'hammContactLastSent';
+      let cooldownTimer = null;
+
+      function getRemainingCooldown() {
+        const last = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0', 10);
+        const remaining = COOLDOWN_MS - (Date.now() - last);
+        return remaining > 0 ? remaining : 0;
+      }
+
+      function formatRemaining(ms) {
+        const totalSeconds = Math.ceil(ms / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return minutes + ':' + String(seconds).padStart(2, '0');
+      }
+
+      function stopCooldownDisplay() {
+        if (cooldownTimer) {
+          clearInterval(cooldownTimer);
+          cooldownTimer = null;
+        }
+      }
+
+      function startCooldownDisplay() {
+        stopCooldownDisplay();
+        submitBtn.disabled = true;
+
+        function tick() {
+          const remaining = getRemainingCooldown();
+          if (remaining <= 0) {
+            stopCooldownDisplay();
+            submitBtn.disabled = false;
+            statusEl.textContent = '';
+            return;
+          }
+          statusEl.textContent = 'Please wait ' + formatRemaining(remaining) + ' before sending another message.';
+        }
+
+        tick();
+        cooldownTimer = setInterval(tick, 1000);
+      }
 
       function openModal() {
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         const first = form.querySelector('input, textarea');
         if (first) first.focus();
+
+        if (getRemainingCooldown() > 0) startCooldownDisplay();
       }
 
       function closeModal() {
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        statusEl.textContent = '';
+        if (getRemainingCooldown() <= 0) statusEl.textContent = '';
         openBtn.focus();
       }
 
@@ -1123,6 +1170,12 @@
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (getRemainingCooldown() > 0) {
+          startCooldownDisplay();
+          return;
+        }
+
         const data = {
           name: (form.name.value || '').trim(),
           email: (form.email.value || '').trim(),
@@ -1136,6 +1189,7 @@
         }
 
         statusEl.textContent = 'Sending…';
+        submitBtn.disabled = true;
 
         try {
           const res = await fetch(endpoint, {
@@ -1146,17 +1200,27 @@
           });
 
           if (res.ok) {
+            localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
             statusEl.textContent = 'Message sent — thank you!';
             form.reset();
-            setTimeout(closeModal, 1400);
+            setTimeout(() => {
+              closeModal();
+              startCooldownDisplay();
+            }, 1400);
           } else {
-            const text = await res.text().catch(() => '');
-            console.error('Contact submit failed', res.status, text);
-            statusEl.textContent = 'Send failed — please try again later.';
+            let message = 'Send failed — please try again later.';
+            try {
+              const body = await res.json();
+              if (body && body.error) message = body.error;
+            } catch (_) {}
+            console.error('Contact submit failed', res.status, message);
+            statusEl.textContent = message;
+            submitBtn.disabled = false;
           }
         } catch (err) {
           console.error(err);
           statusEl.textContent = 'Network error — please try again later.';
+          submitBtn.disabled = false;
         }
       });
     })();

@@ -1,31 +1,15 @@
 HAMM Solutions — Cloudflare Pages notes
 
-This repository contains a single-page site and a Cloudflare Pages Functions handler for the contact form for HAMM Solutions. The site serves homeowners and small-to-medium businesses with home/office automation, networking, and on-site IT services.
-
-What I changed:
-- Replaced anchor/button links to open the contact form as an accessible modal popup in `Index.html`.
-- Contact form now POSTs JSON to `/api/contact` (Cloudflare Pages function).
-- Added `functions/contact.js` which validates input and returns a JSON response.
+This repository is a static HTML/CSS/JS site for HAMM Solutions, serving homeowners and small-to-medium businesses with home/office automation, networking, and on-site IT services. It has no build step and no server-side code of its own.
 
 Deploying to Cloudflare Pages:
-1. Create a new Pages project in the Cloudflare dashboard and connect your Git repository.
-2. Set the build command to `npm run build` (if you add a build step) or leave empty for plain static.
-3. Set the build output directory to the repository root (where `Index.html` lives) or to the folder you prefer.
-4. Cloudflare Pages will automatically pick up the `functions/` directory and mount it under `/api`.
+1. Create a new Pages project in the Cloudflare dashboard and connect this repository.
+2. Leave the build command empty and set the build output directory to the repository root (where `index.html` lives).
+3. `_headers` in the repo root is picked up automatically by Cloudflare Pages and applies the site's security headers (CSP, HSTS, etc.) to every page.
 
-Wiring email delivery:
-- The example function returns success without sending email. For production, integrate with an email provider:
-  - SendGrid, Mailgun, Postmark, or use Cloudflare Workers + a Mail API.
-  - Store API keys in Pages environment variables (Dashboard → Pages → Settings → Environment Variables & Secrets).
-  - Example flow: inside `functions/contact.js`, call the provider's HTTP API using fetch with the API key from env.
+Contact form:
+- The contact form on `index.html` posts directly (client-side `fetch`) to a separate Cloudflare Worker at `contact-form-hammsolutions.jdhamm17.workers.dev`. That Worker is not part of this repository — it validates the submission and sends the notification/auto-reply emails via Resend.
+- If you need to change the email templates, subject lines, or recipient address, edit that Worker's source directly (wherever it's deployed from), not anything in this repo.
 
 Security notes:
-- Validate input server-side (the function includes minimal checks).
-- Protect any API keys with environment secrets — never commit them.
-
-Next steps you might want:
-- Implement provider-specific send code in `functions/contact.js` and add tests.
-- Save messages to a KV namespace or FaunaDB/Postgres if you want persistence.
-- Add reCAPTCHA or hCaptcha to reduce spam.
-
-If you want, I can implement a SendGrid example using environment variables and a short test harness.
+- Keep the Worker's Resend API key in its own environment secret — never commit it anywhere.
