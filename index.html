@@ -468,9 +468,8 @@
 
     .testimonial-track {
       display: flex;
-      gap: 1.5rem;
       width: max-content;
-      animation: testimonial-scroll 60s linear infinite;
+      animation: testimonial-scroll 84s linear infinite;
     }
 
     .testimonial-marquee:hover .testimonial-track {
@@ -485,6 +484,7 @@
     .testimonial-card {
       flex: 0 0 auto;
       width: 320px;
+      margin-right: 1.5rem;
       background: var(--card);
       border: 1px solid rgba(10,10,10,0.06);
       border-radius: 20px;
@@ -902,9 +902,10 @@
         <div class="testimonial-track" role="list">
           <div class="testimonial-card" role="listitem">
             <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
-            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
-            <p class="testimonial-author">[Customer Name]</p>
-            <p class="testimonial-role">[Service], [City]</p>
+            <p class="testimonial-quote">"HAMM Solutions has been an incredible asset to Zellectric. Since using their website development services,
+            our business has seen exponential growth"</p>
+            <p class="testimonial-author">Brayden Zell</p>
+            <p class="testimonial-role">Web Deveopment, Dillsburg</p>
           </div>
           <div class="testimonial-card" role="listitem">
             <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
@@ -930,7 +931,32 @@
             <p class="testimonial-author">[Customer Name]</p>
             <p class="testimonial-role">[Service], [City]</p>
           </div>
-          <!-- Duplicate set for seamless loop; hidden from assistive tech -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
+          <!-- Duplicate set for seamless loop; hidden from assistive tech. Must mirror the set above exactly (same cards, same order) or the loop will visibly skip/cut off near the seam. -->
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"HAMM Solutions has been an incredible asset to Zellectric. Since using their website development services,
+            our business has seen exponential growth"</p>
+            <p class="testimonial-author">Brayden Zell</p>
+            <p class="testimonial-role">Web Deveopment, Dillsburg</p>
+          </div>
+          <div class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
+            <p class="testimonial-author">[Customer Name]</p>
+            <p class="testimonial-role">[Service], [City]</p>
+          </div>
           <div class="testimonial-card" aria-hidden="true">
             <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
             <p class="testimonial-quote">"[Insert real testimonial quote here.]"</p>
