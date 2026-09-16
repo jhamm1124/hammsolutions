@@ -33,78 +33,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="subpage.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--light); color:var(--text); line-height:1.6; }
-    html { scroll-behavior:smooth; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1120px,92%); margin:0 auto; }
-    header { background:var(--navy); color:white; padding:1rem 0; }
-    nav { display:flex; justify-content:space-between; align-items:center; }
-    .logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; color:white; }
-    .logo-icon { width:clamp(40px, 9vw, 58px); height:clamp(40px, 9vw, 58px); flex-shrink:0; }
-    .logo-text { display:flex; flex-direction:column; line-height:1.15; }
-    .logo-word { font-size:clamp(1.15rem, 3.8vw, 1.55rem); font-weight:800; letter-spacing:0.5px; }
-    .logo-sub { font-size:clamp(0.62rem, 2vw, 0.8rem); font-weight:600; letter-spacing:0.28em; color:var(--gold); }
-    .nav-links { display:flex; gap:1rem; }
-    .nav-links a,
-    .dropdown-toggle {
-      color:white;
-      background:transparent;
-      border:none;
-      font:inherit;
-      cursor:pointer;
-      padding:0;
-    }
-
-    .nav-links a:hover,
-    .dropdown-toggle:hover,
-    .dropdown-toggle:focus {
-      color:var(--gold);
-      transition:color 0.2s ease;
-    }
-
-    .dropdown { position: relative; }
-    .dropdown-menu { position:absolute; top:calc(100% + 0.5rem); right:0; min-width:220px; background:white; border-radius:14px; box-shadow:0 18px 40px rgba(2,6,23,0.15); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index:1000; }
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu,
-    .dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
-    .dropdown-menu a { display:block; padding:0.95rem 1rem; color:var(--navy); border-bottom:1px solid rgba(10,10,10,0.08); font-weight:500; transition:background 0.18s ease; }
-    .dropdown-menu a:last-child { border-bottom:none; }
-    .dropdown-menu a:hover, .dropdown-menu a:focus { background:rgba(212,175,55,0.08); }
-    .dropdown-toggle::after { content: '▾'; display:inline-block; margin-left:0.35rem; font-size:0.9rem; }
-    .hero { background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230b1f3a'/%3E%3Cstop offset='1' stop-color='%23152a4e'/%3E%3C/linearGradient%3E%3ClinearGradient id='glass' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23274058'/%3E%3Cstop offset='1' stop-color='%231b2d45'/%3E%3C/linearGradient%3E%3ClinearGradient id='tech' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2392fc92'/%3E%3Cstop offset='1' stop-color='%2331b180'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23bg)'/%3E%3Cpath d='M180 320 L600 140 L1020 320 V520 H180 Z' fill='%23203a51' stroke='%2392fc92' stroke-width='8'/%3E%3Cpath d='M230 520 V360 H520 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M520 520 V340 H760 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M760 520 V360 H970 V520 Z' fill='%23313f5f'/%3E%3Cpath d='M320 400 H440 V480 H320 Z' fill='%233a4d70'/%3E%3Cpath d='M540 380 H680 V460 H540 Z' fill='%233a4d70'/%3E%3Cpath d='M780 400 H900 V480 H780 Z' fill='%233a4d70'/%3E%3Ccircle cx='380' cy='520' r='18' fill='%2392fc92'/%3E%3Ccircle cx='620' cy='520' r='18' fill='%2392fc92'/%3E%3Ccircle cx='860' cy='520' r='18' fill='%2392fc92'/%3E%3Cpath d='M560 180 L520 140 L480 180' fill='none' stroke='%2392fc92' stroke-width='12' stroke-linecap='round'/%3E%3Crect x='520' y='140' width='160' height='90' rx='20' fill='%23233b57' stroke='%2392fc92' stroke-width='6'/%3E%3Crect x='560' y='170' width='80' height='12' rx='6' fill='%2392fc92'/%3E%3Ccircle cx='630' cy='220' r='8' fill='%2392fc92'/%3E%3Cpath d='M520 260 C520 240 580 240 580 260 S640 280 640 260' fill='none' stroke='%2392fc92' stroke-width='8'/%3E%3Cpath d='M240 390 C240 350 280 320 320 320 C360 320 400 350 400 390' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Ccircle cx='320' cy='360' r='24' fill='%23384d6c' stroke='%2392fc92' stroke-width='5'/%3E%3Cpath d='M300 360 H340 M320 340 V380' stroke='%2392fc92' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M900 360 C900 320 920 300 940 300 C960 300 980 320 980 360' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Crect x='920' y='326' width='30' height='30' rx='8' fill='%23384d6c' stroke='%2392fc92' stroke-width='5'/%3E%3Cpath d='M930 340 H950 M940 330 V350' stroke='%2392fc92' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M520 415 L480 455 L560 455 Z' fill='%2392fc92'/%3E%3Cpath d='M670 420 L690 420 L690 445 L670 445 Z' fill='%2392fc92'/%3E%3Cpath d='M640 430 L660 430 L650 460 Z' fill='%2392fc92'/%3E%3Cpath d='M780 350 L850 325 L820 400 Z' fill='none' stroke='%2392fc92' stroke-width='6'/%3E%3Cpath d='M540 510 C580 480 620 480 660 510' stroke='%2392fc92' stroke-width='6' fill='none'/%3E%3Ctext x='300' y='560' font-family='Inter, sans-serif' font-size='28' fill='%2392fc92'%3ESmart home tech inside%3C/text%3E%3C/svg%3E") center/cover no-repeat; color:white; padding:7rem 0; }
-    .hero h1 { font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem; }
-    .hero p { max-width:700px; color:rgba(255,255,255,0.9); margin-bottom:2rem; }
-    .btn { display:inline-block; padding:0.95rem 1.5rem; border-radius:14px; font-weight:600; transition:0.25s ease; }
-    .btn-primary { background:var(--gold); color:var(--navy); }
-    .btn-primary:hover { transform:translateY(-2px); }
-    .section-title { margin-bottom:2rem; }
-    .section-title h2 { font-size:2.2rem; color:var(--navy); margin-bottom:0.75rem; }
-    .section-title p { color:var(--muted); max-width:720px; }
-    .content-grid { display:grid; gap:2rem; grid-template-columns:1fr; }
-    .gallery-grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:2rem; }
-    .gallery-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:18px; overflow:hidden; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
-    .gallery-card img { display:block; width:100%; height:230px; object-fit:cover; }
-    .gallery-card p { padding:1rem; color:var(--muted); font-size:0.98rem; }
-    .card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
-    .card h3 { color:var(--navy); margin-bottom:1rem; }
-    .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
-    .pricing-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); max-width:480px; margin:0 auto; text-align:center; }
-    .pricing-badge { display:inline-block; background:rgba(212,175,55,0.12); color:var(--gold); font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:999px; margin-bottom:1rem; }
-    .pricing-rate { font-size:2.4rem; font-weight:800; color:var(--navy); margin-bottom:0.75rem; }
-    .pricing-rate span { font-size:1.1rem; font-weight:600; color:var(--muted); }
-    .pricing-includes { color:var(--muted); font-size:0.98rem; }
-    .pricing-list { list-style:none; text-align:left; margin:0 0 1rem; }
-    .pricing-list li { display:flex; justify-content:space-between; gap:1rem; padding:0.6rem 0; border-bottom:1px solid rgba(10,10,10,0.06); color:var(--text); }
-    .pricing-list li:last-child { border-bottom:none; }
-    .pricing-list li strong { color:var(--navy); }
-    .pricing-note { text-align:center; color:var(--muted); font-size:0.92rem; margin-top:1.25rem; }
-    .pricing-note a { color:var(--gold); text-decoration:underline; font-weight:600; }
-    .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
-    .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
-    footer { background:var(--navy); color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
-    @media (min-width:768px) { .content-grid { grid-template-columns: 1.2fr 0.8fr; } }
+    .hero { background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)), url('images/hero-smart-home.svg') center/cover no-repeat; }
   </style>
   <script type="application/ld+json">
   {
@@ -171,11 +102,13 @@
             </div>
           </div>
           <a href="index.html">Home</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="index.html#contact" data-open-contact data-service="Smart Home Setup">Contact</a>
         </div>
       </nav>
     </div>
   </header>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <section class="hero">
     <div class="container">
@@ -185,7 +118,7 @@
     </div>
   </section>
 
-  <main class="container" style="padding:4rem 0;">
+  <main id="main-content" class="container" style="padding:4rem 0;">
     <div class="section-title">
       <h2>Smart Home Services</h2>
       <p>We help you choose the right smart home ecosystem, connect devices safely, and set up automations that simplify your day.</p>
@@ -223,7 +156,7 @@
         <div class="pricing-rate">$85&ndash;$100<span>/hr</span></div>
         <p class="pricing-includes">Covers device setup, integration, and automation configuration for TVs, cameras, speakers, and full smart home ecosystems.</p>
       </div>
-      <p class="pricing-note">Reaching out is always free — <a href="index.html#contact">contact us</a> for a no-obligation quote. If your issue needs an in-person look, on-site visits are $25&ndash;$50 depending on location, waived if you hire us. Final pricing depends on project scope.</p>
+      <p class="pricing-note">Reaching out is always free — <a href="index.html#contact" data-open-contact data-service="Smart Home Setup">contact us</a> for a no-obligation quote. If your issue needs an in-person look, on-site visits are $25&ndash;$50 depending on location, waived if you hire us. Final pricing depends on project scope.</p>
     </div>
 
     <section class="section-title">
@@ -244,36 +177,43 @@
     <section class="contact-cta" style="margin-top:3rem;">
       <h2>Ready for a smarter home?</h2>
       <p>We make home automation practical, secure, and easy to use for everyday life.</p>
-      <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      <a href="index.html#contact" class="btn btn-primary" data-open-contact data-service="Smart Home Setup">Contact Us</a>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal" aria-hidden="true">
+      <div class="contact-modal-overlay" data-action="close" tabindex="-1"></div>
+      <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <button class="contact-modal-close" data-action="close" aria-label="Close contact form">×</button>
+        <h3 id="contact-modal-title">Send us a message</h3>
+        <form id="contact-form" novalidate>
+          <label for="cf-name">Name <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" />
+
+          <label for="cf-email">Email <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" />
+
+          <label for="cf-phone">Phone <span style="font-weight:400; color:var(--muted);">(optional)</span></label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+
+          <label for="cf-message">Message <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <textarea id="cf-message" name="message" rows="6" required></textarea>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-cancel" data-action="close">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+
+          <p id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="container">© 2026 HAMM Solutions • Hardware, Automation &amp; Managed Modernization • <a href="tel:+17177362544" style="color:inherit; text-decoration:underline;">(717) 736-2544</a></div>
   </footer>
-<script>
-  const serviceDropdownButton = document.querySelector('.dropdown-toggle');
-  const serviceDropdown = document.querySelector('.dropdown');
-  if (serviceDropdownButton && serviceDropdown) {
-    serviceDropdownButton.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      serviceDropdown.classList.toggle('open', !expanded);
-    });
-    document.addEventListener('click', function(event) {
-      if (!serviceDropdown.contains(event.target)) {
-        serviceDropdownButton.setAttribute('aria-expanded', 'false');
-        serviceDropdown.classList.remove('open');
-      }
-    });
-    serviceDropdownButton.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        this.setAttribute('aria-expanded', 'false');
-        serviceDropdown.classList.remove('open');
-        this.blur();
-      }
-    });
-  }
-</script>
+<script src="scripts/dropdown.js"></script>
+<script src="scripts/contact-modal.js"></script>
 </body>
 </html>

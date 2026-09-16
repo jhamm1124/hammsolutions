@@ -6,3 +6,204 @@
   --muted: #64748B;
   --card:  #FFFFFF;
 }
+
+/* Shared base + components used on every page */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--text); line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { width: min(1120px, 92%); margin: 0 auto; }
+
+.logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: white; }
+.logo-icon { width: clamp(40px, 9vw, 58px); height: clamp(40px, 9vw, 58px); flex-shrink: 0; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.logo-word { font-size: clamp(1.15rem, 3.8vw, 1.55rem); font-weight: 800; letter-spacing: 0.5px; }
+.logo-sub { font-size: clamp(0.62rem, 2vw, 0.8rem); font-weight: 600; letter-spacing: 0.28em; color: var(--gold); }
+
+.nav-links a,
+.dropdown-toggle {
+  color: white;
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+  color: var(--gold);
+  transition: color 0.2s ease;
+}
+
+.dropdown { position: relative; }
+.dropdown-toggle::after { content: '▾'; display: inline-block; margin-left: 0.35rem; font-size: 0.9rem; }
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 220px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(2,6,23,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu,
+.dropdown.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a { display: block; padding: 0.95rem 1rem; color: var(--navy); border-bottom: 1px solid rgba(10,10,10,0.08); font-weight: 500; transition: background 0.18s ease; }
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover, .dropdown-menu a:focus { background: rgba(212,175,55,0.08); }
+
+.btn { display: inline-block; padding: 0.95rem 1.5rem; border-radius: 14px; font-weight: 600; transition: 0.25s ease; cursor: pointer; border: none; font-family: inherit; font-size: inherit; }
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-primary:hover { transform: translateY(-2px); }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.75); text-align: center; padding: 2rem 0; font-size: 0.95rem; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  background: var(--navy);
+  color: white;
+  border-radius: 0.5rem;
+  z-index: 2000;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Contact Modal ── (shared by every page) */
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.contact-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.contact-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.6);
+}
+
+.contact-modal-panel {
+  position: relative;
+  background: var(--card);
+  color: var(--text);
+  border-radius: 20px;
+  max-width: 560px;
+  width: 92%;
+  padding: 2rem;
+  box-shadow: 0 24px 60px rgba(2,6,23,0.25);
+  z-index: 10;
+}
+
+.contact-modal-panel h3 {
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--muted);
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.contact-modal-close:hover {
+  background: rgba(10,10,10,0.06);
+}
+
+.contact-modal-panel label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.contact-modal-panel input,
+.contact-modal-panel textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid rgba(10,10,10,0.35);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--light);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.contact-modal-panel input:focus,
+.contact-modal-panel textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+}
+
+.contact-modal-panel textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background: rgba(10,10,10,0.06);
+  color: var(--navy);
+}
+
+.btn-cancel:hover {
+  background: rgba(10,10,10,0.1);
+}
+
+#contact-form-status {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  min-height: 1.4em;
+}

@@ -33,78 +33,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="subpage.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--light); color:var(--text); line-height:1.6; }
-    html { scroll-behavior:smooth; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1120px,92%); margin:0 auto; }
-    header { background:var(--navy); color:white; padding:1rem 0; }
-    nav { display:flex; justify-content:space-between; align-items:center; }
-    .logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; color:white; }
-    .logo-icon { width:clamp(40px, 9vw, 58px); height:clamp(40px, 9vw, 58px); flex-shrink:0; }
-    .logo-text { display:flex; flex-direction:column; line-height:1.15; }
-    .logo-word { font-size:clamp(1.15rem, 3.8vw, 1.55rem); font-weight:800; letter-spacing:0.5px; }
-    .logo-sub { font-size:clamp(0.62rem, 2vw, 0.8rem); font-weight:600; letter-spacing:0.28em; color:var(--gold); }
-    .nav-links { display:flex; gap:1rem; }
-    .nav-links a,
-    .dropdown-toggle {
-      color:white;
-      background:transparent;
-      border:none;
-      font:inherit;
-      cursor:pointer;
-      padding:0;
-    }
-
-    .nav-links a:hover,
-    .dropdown-toggle:hover,
-    .dropdown-toggle:focus {
-      color:var(--gold);
-      transition:color 0.2s ease;
-    }
-
-    .dropdown { position: relative; }
-    .dropdown-menu { position:absolute; top:calc(100% + 0.5rem); right:0; min-width:220px; background:white; border-radius:14px; box-shadow:0 18px 40px rgba(2,6,23,0.15); opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index:1000; }
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu,
-    .dropdown.open .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
-    .dropdown-menu a { display:block; padding:0.95rem 1rem; color:var(--navy); border-bottom:1px solid rgba(10,10,10,0.08); font-weight:500; transition:background 0.18s ease; }
-    .dropdown-menu a:last-child { border-bottom:none; }
-    .dropdown-menu a:hover, .dropdown-menu a:focus { background:rgba(212,175,55,0.08); }
-    .dropdown-toggle::after { content: '▾'; display:inline-block; margin-left:0.35rem; font-size:0.9rem; }
-    .hero { background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Crect width='1200' height='600' fill='%23071428'/%3E%3Crect x='120' y='80' width='960' height='440' rx='32' fill='%23091c33'/%3E%3Crect x='160' y='110' width='880' height='380' rx='24' fill='%230c2b41'/%3E%3Crect x='190' y='140' width='820' height='14' rx='7' fill='%231f4f7f'/%3E%3Crect x='190' y='170' width='820' height='100' rx='14' fill='%2319222f'/%3E%3Crect x='226' y='180' width='90' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='226' y='202' width='90' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='226' y='224' width='90' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='400' y='180' width='370' height='12' rx='6' fill='%23107dba'/%3E%3Crect x='400' y='202' width='370' height='12' rx='6' fill='%23107dba'/%3E%3Crect x='400' y='224' width='370' height='12' rx='6' fill='%23107dba'/%3E%3Crect x='790' y='180' width='90' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='226' y='264' width='654' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='226' y='286' width='654' height='12' rx='6' fill='%233e6db1'/%3E%3Crect x='226' y='308' width='654' height='12' rx='6' fill='%233e6db1'/%3E%3Cg fill='%2392fc92'%3E%3Ccircle cx='245' cy='315' r='6'/%3E%3Ccircle cx='290' cy='315' r='6'/%3E%3Ccircle cx='335' cy='315' r='6'/%3E%3Ccircle cx='380' cy='315' r='6'/%3E%3Ccircle cx='425' cy='315' r='6'/%3E%3Ccircle cx='470' cy='315' r='6'/%3E%3Ccircle cx='515' cy='315' r='6'/%3E%3Ccircle cx='560' cy='315' r='6'/%3E%3Ccircle cx='605' cy='315' r='6'/%3E%3Ccircle cx='650' cy='315' r='6'/%3E%3Ccircle cx='695' cy='315' r='6'/%3E%3Ccircle cx='740' cy='315' r='6'/%3E%3Ccircle cx='785' cy='315' r='6'/%3E%3Ccircle cx='830' cy='315' r='6'/%3E%3Ccircle cx='875' cy='315' r='6'/%3E%3C/g%3E%3Ctext x='180' y='88' font-family='Inter, sans-serif' font-size='36' fill='%23ffffff'%3EUbiquiti Home Rack%3C/text%3E%3Ctext x='200' y='380' font-family='monospace' font-size='28' fill='%2392fc92'%3E%5C%5B eth0 %5D%20Connected%20%20LAN%3A%2010.0.0.1%3C/text%3E%3C/svg%3E") center/cover no-repeat; color:white; padding:7rem 0; }
-    .hero h1 { font-size:clamp(2.5rem,5vw,4rem); margin-bottom:1rem; }
-    .hero p { max-width:700px; color:rgba(255,255,255,0.9); margin-bottom:2rem; }
-    .btn { display:inline-block; padding:0.95rem 1.5rem; border-radius:14px; font-weight:600; transition:0.25s ease; }
-    .btn-primary { background:var(--gold); color:var(--navy); }
-    .btn-primary:hover { transform:translateY(-2px); }
-    .section-title { margin-bottom:2rem; }
-    .section-title h2 { font-size:2.2rem; color:var(--navy); margin-bottom:0.75rem; }
-    .section-title p { color:var(--muted); max-width:720px; }
-    .content-grid { display:grid; gap:2rem; grid-template-columns:1fr; }
-    .gallery-grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:2rem; }
-    .gallery-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:18px; overflow:hidden; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
-    .gallery-card img { display:block; width:100%; height:230px; object-fit:cover; }
-    .gallery-card p { padding:1rem; color:var(--muted); font-size:0.98rem; }
-    .card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); }
-    .card h3 { color:var(--navy); margin-bottom:1rem; }
-    .card ul { list-style:disc; margin-left:1.25rem; color:var(--muted); }
-    .pricing-card { background:var(--card); border:1px solid rgba(10,10,10,0.08); border-radius:20px; padding:2rem; box-shadow:0 14px 30px rgba(2,6,23,0.06); max-width:480px; margin:0 auto; text-align:center; }
-    .pricing-badge { display:inline-block; background:rgba(212,175,55,0.12); color:var(--gold); font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:999px; margin-bottom:1rem; }
-    .pricing-rate { font-size:2.4rem; font-weight:800; color:var(--navy); margin-bottom:0.75rem; }
-    .pricing-rate span { font-size:1.1rem; font-weight:600; color:var(--muted); }
-    .pricing-includes { color:var(--muted); font-size:0.98rem; }
-    .pricing-list { list-style:none; text-align:left; margin:0 0 1rem; }
-    .pricing-list li { display:flex; justify-content:space-between; gap:1rem; padding:0.6rem 0; border-bottom:1px solid rgba(10,10,10,0.06); color:var(--text); }
-    .pricing-list li:last-child { border-bottom:none; }
-    .pricing-list li strong { color:var(--navy); }
-    .pricing-note { text-align:center; color:var(--muted); font-size:0.92rem; margin-top:1.25rem; }
-    .pricing-note a { color:var(--gold); text-decoration:underline; font-weight:600; }
-    .contact-cta { background:var(--navy); color:white; border-radius:24px; padding:2rem; text-align:center; }
-    .contact-cta p { max-width:760px; margin:0 auto 1.5rem; color:rgba(255,255,255,0.85); }
-    footer { background:var(--navy); color:rgba(255,255,255,0.75); text-align:center; padding:2rem 0; font-size:0.95rem; }
-    @media (min-width:768px) { .content-grid { grid-template-columns: 1.2fr 0.8fr; } }
+    .hero { background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.88)), url('images/hero-networking.svg') center/cover no-repeat; }
   </style>
   <script type="application/ld+json">
   {
@@ -171,11 +102,13 @@
             </div>
           </div>
           <a href="index.html">Home</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="index.html#contact" data-open-contact data-service="Networking">Contact</a>
         </div>
       </nav>
     </div>
   </header>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <section class="hero">
     <div class="container">
@@ -185,7 +118,7 @@
     </div>
   </section>
 
-  <main class="container" style="padding:4rem 0;">
+  <main id="main-content" class="container" style="padding:4rem 0;">
     <div class="section-title">
       <h2>What We Offer</h2>
       <p>From Wi-Fi optimization to Ethernet cabling, we make networks more consistent and easier to manage for busy homes and workplaces.</p>
@@ -223,7 +156,7 @@
         <div class="pricing-rate">$70&ndash;$85<span>/hr</span></div>
         <p class="pricing-includes">Covers Wi&#8209;Fi optimization, router and mesh setup, Ethernet installation, and network troubleshooting.</p>
       </div>
-      <p class="pricing-note">Reaching out is always free — <a href="index.html#contact">contact us</a> for a no-obligation quote. If your issue needs an in-person look, on-site visits are $25&ndash;$50 depending on location, waived if you hire us. Final pricing depends on project scope.</p>
+      <p class="pricing-note">Reaching out is always free — <a href="index.html#contact" data-open-contact data-service="Networking">contact us</a> for a no-obligation quote. If your issue needs an in-person look, on-site visits are $25&ndash;$50 depending on location, waived if you hire us. Final pricing depends on project scope.</p>
     </div>
 
     <section class="section-title">
@@ -246,36 +179,43 @@
     <section class="contact-cta" style="margin-top:3rem;">
       <h2>Ready to fix your Wi-Fi?</h2>
       <p>We provide practical network solutions that help homes and businesses stay connected without frustration.</p>
-      <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      <a href="index.html#contact" class="btn btn-primary" data-open-contact data-service="Networking">Contact Us</a>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal" aria-hidden="true">
+      <div class="contact-modal-overlay" data-action="close" tabindex="-1"></div>
+      <div class="contact-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <button class="contact-modal-close" data-action="close" aria-label="Close contact form">×</button>
+        <h3 id="contact-modal-title">Send us a message</h3>
+        <form id="contact-form" novalidate>
+          <label for="cf-name">Name <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" />
+
+          <label for="cf-email">Email <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" />
+
+          <label for="cf-phone">Phone <span style="font-weight:400; color:var(--muted);">(optional)</span></label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+
+          <label for="cf-message">Message <span style="color:#DC2626;" aria-hidden="true">*</span></label>
+          <textarea id="cf-message" name="message" rows="6" required></textarea>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-cancel" data-action="close">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+
+          <p id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="container">© 2026 HAMM Solutions • Hardware, Automation &amp; Managed Modernization • <a href="tel:+17177362544" style="color:inherit; text-decoration:underline;">(717) 736-2544</a></div>
   </footer>
-<script>
-  const serviceDropdownButton = document.querySelector('.dropdown-toggle');
-  const serviceDropdown = document.querySelector('.dropdown');
-  if (serviceDropdownButton && serviceDropdown) {
-    serviceDropdownButton.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      serviceDropdown.classList.toggle('open', !expanded);
-    });
-    document.addEventListener('click', function(event) {
-      if (!serviceDropdown.contains(event.target)) {
-        serviceDropdownButton.setAttribute('aria-expanded', 'false');
-        serviceDropdown.classList.remove('open');
-      }
-    });
-    serviceDropdownButton.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        this.setAttribute('aria-expanded', 'false');
-        serviceDropdown.classList.remove('open');
-        this.blur();
-      }
-    });
-  }
-</script>
+<script src="scripts/dropdown.js"></script>
+<script src="scripts/contact-modal.js"></script>
 </body>
 </html>

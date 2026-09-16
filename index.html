@@ -39,55 +39,6 @@
   <link rel="stylesheet" href="theme.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: 0.75rem 1rem;
-      background: var(--navy);
-      color: white;
-      border-radius: 0.5rem;
-      z-index: 2000;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-    }
-
     header {
       background: var(--navy);
       color: white;
@@ -104,118 +55,11 @@
       padding: 1rem 0;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      color: white;
-    }
-
-    .logo-icon {
-      width: clamp(40px, 9vw, 58px);
-      height: clamp(40px, 9vw, 58px);
-      flex-shrink: 0;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-
-    .logo-word {
-      font-size: clamp(1.15rem, 3.8vw, 1.55rem);
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-
-    .logo-sub {
-      font-size: clamp(0.62rem, 2vw, 0.8rem);
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      color: var(--gold);
-    }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
       font-weight: 500;
       align-items: center;
-    }
-
-    .nav-links a,
-    .dropdown-toggle {
-      color: white;
-      background: transparent;
-      border: none;
-      font: inherit;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .nav-links a:hover,
-    .dropdown-toggle:hover,
-    .dropdown-toggle:focus {
-      color: var(--gold);
-      transition: color 0.2s ease;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: calc(100% + 0.5rem);
-      right: 0;
-      min-width: 220px;
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 18px 40px rgba(2,6,23,0.15);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-      z-index: 1000;
-    }
-
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu,
-    .dropdown.open .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 0.95rem 1rem;
-      color: var(--navy);
-      border-bottom: 1px solid rgba(10,10,10,0.08);
-      font-weight: 500;
-      transition: background 0.18s ease;
-    }
-
-    .dropdown-menu a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-menu a:hover,
-    .dropdown-menu a:focus {
-      background: rgba(212,175,55,0.08);
-    }
-
-    .dropdown-toggle::after {
-      content: '▾';
-      display: inline-block;
-      margin-left: 0.35rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-      transition: 0.2s ease;
     }
 
     .hero {
@@ -259,27 +103,6 @@
       gap: 1rem;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 0.95rem 1.5rem;
-      border-radius: 14px;
-      font-weight: 600;
-      transition: 0.25s ease;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-      font-size: inherit;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
     .btn-secondary {
       border: 1px solid rgba(255,255,255,0.25);
       color: white;
@@ -314,34 +137,6 @@
       color: var(--muted);
       max-width: 700px;
       margin: 0 auto;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-card {
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--card);
-      box-shadow: 0 18px 40px rgba(2,6,23,0.08);
-    }
-
-    .gallery-card img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 4 / 3;
-    }
-
-    .gallery-caption {
-      padding: 1rem 1.25rem 1.25rem;
-      color: var(--text);
-      font-size: 0.98rem;
-      line-height: 1.5;
     }
 
     .services-grid {
@@ -570,127 +365,6 @@
       gap: 1rem;
     }
 
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.75);
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.95rem;
-    }
-
-    /* ── Contact Modal ── (outside media query so it works on all screen sizes) */
-    .contact-modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-
-    .contact-modal[aria-hidden="false"] {
-      display: flex;
-    }
-
-    .contact-modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10,10,10,0.6);
-    }
-
-    .contact-modal-panel {
-      position: relative;
-      background: var(--card);
-      color: var(--text);
-      border-radius: 20px;
-      max-width: 560px;
-      width: 92%;
-      padding: 2rem;
-      box-shadow: 0 24px 60px rgba(2,6,23,0.25);
-      z-index: 10;
-    }
-
-    .contact-modal-panel h3 {
-      font-size: 1.4rem;
-      color: var(--navy);
-      margin-bottom: 1.25rem;
-    }
-
-    .contact-modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--muted);
-      line-height: 1;
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      transition: background 0.15s ease;
-    }
-
-    .contact-modal-close:hover {
-      background: rgba(10,10,10,0.06);
-    }
-
-    .contact-modal-panel label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-modal-panel input,
-    .contact-modal-panel textarea {
-      width: 100%;
-      padding: 0.65rem 0.85rem;
-      border: 1.5px solid rgba(10,10,10,0.35);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 1rem;
-      color: var(--text);
-      background: var(--light);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .contact-modal-panel input:focus,
-    .contact-modal-panel textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
-    }
-
-    .contact-modal-panel textarea {
-      resize: vertical;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-      justify-content: flex-end;
-    }
-
-    .btn-cancel {
-      background: rgba(10,10,10,0.06);
-      color: var(--navy);
-    }
-
-    .btn-cancel:hover {
-      background: rgba(10,10,10,0.1);
-    }
-
-    #contact-form-status {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-      min-height: 1.4em;
-    }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -805,7 +479,7 @@
         </p>
 
         <div class="hero-buttons">
-          <button id="hero-quote-btn" class="btn btn-primary">Request a Quote</button>
+          <button id="hero-quote-btn" class="btn btn-primary" data-open-contact>Request a Quote</button>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
       </div>
@@ -868,12 +542,12 @@
               <h2>Why Choose Us?</h2>
             </div>
 
-            <p style="margin-bottom:1rem; color:var(--muted);">
+            <p style="margin-bottom:1rem; color:#475569;">
               We believe technology should work for your home — not against it.
               Our mission is to provide honest, dependable, and easy-to-understand IT support for everyday people.
             </p>
 
-            <p style="color:var(--muted);">
+            <p style="color:#475569;">
               Whether you need stronger Wi‑Fi, help with devices, or a complete smart home setup,
               we focus on professional service with integrity and reliability.
             </p>
@@ -1014,7 +688,7 @@
         <p style="margin-top:0.75rem; color:rgba(255,255,255,0.9); font-weight:600;">Service area: Harrisburg, York, Carlisle, Lancaster &amp; surrounding central PA.</p>
 
         <div class="contact-buttons">
-          <button id="contact-open-btn" class="btn btn-primary">Contact Us</button>
+          <button id="contact-open-btn" class="btn btn-primary" data-open-contact>Contact Us</button>
         </div>
       </div>
     </section>
@@ -1111,150 +785,7 @@
     })();
   </script>
 
-  <script>
-    // Contact modal
-    (function() {
-      const modal = document.getElementById('contact-modal');
-      const openBtn = document.getElementById('contact-open-btn');
-      if (!modal || !openBtn) return;
-
-      const closeElems = modal.querySelectorAll('[data-action="close"]');
-      const form = document.getElementById('contact-form');
-      const statusEl = document.getElementById('contact-form-status');
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const endpoint = 'https://contact-form-hammsolutions.jdhamm17.workers.dev';
-
-      const COOLDOWN_MS = 2 * 60 * 1000; // 2 minutes
-      const COOLDOWN_KEY = 'hammContactLastSent';
-      let cooldownTimer = null;
-
-      function getRemainingCooldown() {
-        const last = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0', 10);
-        const remaining = COOLDOWN_MS - (Date.now() - last);
-        return remaining > 0 ? remaining : 0;
-      }
-
-      function formatRemaining(ms) {
-        const totalSeconds = Math.ceil(ms / 1000);
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        return minutes + ':' + String(seconds).padStart(2, '0');
-      }
-
-      function stopCooldownDisplay() {
-        if (cooldownTimer) {
-          clearInterval(cooldownTimer);
-          cooldownTimer = null;
-        }
-      }
-
-      function startCooldownDisplay() {
-        stopCooldownDisplay();
-        submitBtn.disabled = true;
-
-        function tick() {
-          const remaining = getRemainingCooldown();
-          if (remaining <= 0) {
-            stopCooldownDisplay();
-            submitBtn.disabled = false;
-            statusEl.textContent = '';
-            return;
-          }
-          statusEl.textContent = 'Please wait ' + formatRemaining(remaining) + ' before sending another message.';
-        }
-
-        tick();
-        cooldownTimer = setInterval(tick, 1000);
-      }
-
-      function openModal() {
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        const first = form.querySelector('input, textarea');
-        if (first) first.focus();
-
-        if (getRemainingCooldown() > 0) startCooldownDisplay();
-      }
-
-      function closeModal() {
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (getRemainingCooldown() <= 0) statusEl.textContent = '';
-        openBtn.focus();
-      }
-
-      openBtn.addEventListener('click', openModal);
-
-      const heroQuoteBtn = document.getElementById('hero-quote-btn');
-      if (heroQuoteBtn) heroQuoteBtn.addEventListener('click', openModal);
-
-      closeElems.forEach(el => el.addEventListener('click', closeModal));
-
-      modal.addEventListener('click', (e) => {
-        if (e.target === e.currentTarget || e.target.classList.contains('contact-modal-overlay')) closeModal();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
-      });
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        if (getRemainingCooldown() > 0) {
-          startCooldownDisplay();
-          return;
-        }
-
-        const data = {
-          name: (form.name.value || '').trim(),
-          email: (form.email.value || '').trim(),
-          phone: (form.phone.value || '').trim(),
-          message: (form.message.value || '').trim()
-        };
-
-        if (!data.name || !data.email || !data.message) {
-          statusEl.textContent = 'Please complete all fields.';
-          return;
-        }
-
-        statusEl.textContent = 'Sending…';
-        submitBtn.disabled = true;
-
-        try {
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-            mode: 'cors'
-          });
-
-          if (res.ok) {
-            localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
-            statusEl.textContent = 'Message sent — thank you!';
-            form.reset();
-            setTimeout(() => {
-              closeModal();
-              startCooldownDisplay();
-            }, 1400);
-          } else {
-            let message = 'Send failed — please try again later.';
-            try {
-              const body = await res.json();
-              if (body && body.error) message = body.error;
-            } catch (_) {}
-            console.error('Contact submit failed', res.status, message);
-            statusEl.textContent = message;
-            submitBtn.disabled = false;
-          }
-        } catch (err) {
-          console.error(err);
-          statusEl.textContent = 'Network error — please try again later.';
-          submitBtn.disabled = false;
-        }
-      });
-    })();
-  </script>
+  <script src="scripts/contact-modal.js"></script>
 
 </body>
 </html>
