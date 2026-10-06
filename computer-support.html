@@ -46,16 +46,24 @@
     "name": "Computer Support | HAMM Solutions",
     "description": "Computer support services for troubleshooting, upgrades, malware removal, and system optimization from HAMM Solutions.",
     "url": "https://hammsolutions.com/computer-support.html",
-    "offers": {
-      "@type": "Offer",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "minPrice": 50,
-        "maxPrice": 65,
-        "priceCurrency": "USD",
-        "unitText": "HOUR"
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Minimum charge",
+        "price": 40,
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Hourly rate after the first hour",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": 50,
+          "priceCurrency": "USD",
+          "unitText": "HOUR"
+        }
       }
-    },
+    ],
     "provider": {
       "@type": "LocalBusiness",
       "name": "HAMM Solutions",
@@ -150,29 +158,17 @@
     <div id="pricing" style="margin-top:2rem; margin-bottom:3rem;">
       <div class="section-title">
         <h2>Pricing</h2>
-        <p>Clear hourly pricing for computer support — most sessions start with a quick diagnosis.</p>
+        <p>Simple minimum-plus-hourly pricing for computer support — most sessions start with a quick diagnosis.</p>
       </div>
       <div class="pricing-card">
         <span class="pricing-badge">Computer Support Rate</span>
-        <div class="pricing-rate">$50&ndash;$65<span>/hr</span></div>
+        <ul class="pricing-list">
+          <li><span>Minimum charge</span><strong>$40</strong></li>
+          <li><span>After the first hour</span><strong>$50/hr</strong></li>
+        </ul>
         <p class="pricing-includes">Covers diagnostics, malware/virus removal, performance tuning, and general troubleshooting.</p>
       </div>
       <p class="pricing-note">Reaching out is always free — <a href="index.html#contact" data-open-contact data-service="Computer Support">contact us</a> for a no-obligation quote. If your issue needs an in-person look, on-site visits are $25&ndash;$50 depending on location, waived if you hire us. Final pricing depends on project scope.</p>
-    </div>
-
-    <section class="section-title">
-      <h2>Recent Repairs & Support</h2>
-      <p>Examples of computer support work we completed, from performance tuning to malware cleanup and system rebuilds.</p>
-    </section>
-    <div class="gallery-grid">
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Computer repair and setup" />
-        <p>Off-site PC optimization and repair to restore performance for a home workstation.</p>
-      </div>
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Laptop maintenance and cable setup" />
-        <p>Malware cleanup and system maintenance for a personal laptop.</p>
-      </div>
     </div>
 
     <section class="contact-cta" style="margin-top:3rem;">
